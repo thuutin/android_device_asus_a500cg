@@ -1,0 +1,11 @@
+# Additional service_contexts rules
+securityfile                              u:object_r:securityfile_service:s0
+security                                  u:object_r:securitymanager_service:s0
+#line 1 "device/intel/clovertrail/sepolicy/service_contexts"
+# Additional service_contexts rules
+oemtelephony                              u:object_r:radio_service:s0
+display.intel.mds                         u:object_r:display_service:s0
+cws_service_manager                       u:object_r:cws_service:s0
+hwc                                       u:object_r:hwc_service:s0
+#com.intel.security.service.ISEPService    u:object_r:ISEP_service:s0
+media.widi.uibc                           u:object_r:mediaserver_service:s0

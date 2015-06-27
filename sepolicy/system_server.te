@@ -1,0 +1,22 @@
+allow mmgr shell_exec:file execute;
+allow mmgr_exec shell_exec:file execute;
+allow shell mmgr_exec:file getattr;
+allow mmgr_exec mmgr_socket:sock_file {ioctl read write create getattr setattr lock relabelfrom relabelto append};
+
+# enable Battery Saver
+allow system_server thermal_socket:sock_file write;
+#allow system_server thermal:unix_dgram_socket sendto;
+
+# Property Service write
+#allow system_server shell_prop:property_service set;
+
+allow system_server factory_file:dir search;
+allow system_server gps_data_file:fifo_file { write read open setattr create};
+allow system_server gps_data_file:dir { search add_name write };
+#unix_socket_connect(system_server, gnss, cg2k)
+#allow system_server pstore-clean_data_file:dir search;
+allow system_server init:unix_dgram_socket sendto;
+allow system_server surfaceflinger_tmpfs:file { read write };
+
+allow nvm_server socket_device:sock_file write;
+allow nvm_server system_file:file entrypoint;

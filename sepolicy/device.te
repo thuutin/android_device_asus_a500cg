@@ -1,0 +1,20 @@
+#GPU (used by most UI apps)
+
+type nvm_server_exec, exec_type;
+type nvm_server, exec_type;
+type intel_sst_ctrl_device, dev_type;
+type gauge_device, dev_type;
+type gauge_exec, exec_type;
+
+type mmgr, exec_type;
+type sep_device, dev_type;
+type i2c_device, dev_type;
+type switch_ctrl_device, dev_type;
+
+
+
+type securitymanager_service,     service_manager_type;
+type securityfile_service, service_manager_type;
+type display_service, service_manager_type;
+type cws_service, service_manager_type;
+type hwc_service, service_manager_type;

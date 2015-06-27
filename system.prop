@@ -1,0 +1,12 @@
+
+dalvik.vm.lockprof.threshold=500
+dalvik.jit.code_cache_size=1048576
+ro.hwui.texture_cache_size=24.0f
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=512
+persist.tel.hot_swap.support=true
+drm.service.enabled=true
+ro.blankphone_id=1
+widi.media.extmode.enable=false
+ro.ril.status.polling.enable=0
+rild.libpath=/system/lib/librapid-ril-core.so

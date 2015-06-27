@@ -1,0 +1,7 @@
+#mount point   fstype    device
+/dev/block/by-name/system 	/system        ext4
+/dev/block/by-name/cache 	/cache         ext4
+/dev/block/by-name/boot		/boot          emmc
+/dev/block/by-name/recovery		/recovery      emmc
+/dev/block/by-name/data 	/data          ext4   
+/dev/block/by-name/misc		/misc          emmc

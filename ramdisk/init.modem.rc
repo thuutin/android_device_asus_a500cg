@@ -1,0 +1,166 @@
+on init
+    chown root radio /dev/ttyGTM*
+    chmod 0660 /dev/ttyGTM*
+    setprop gsm.firmware.upload ok
+
+#  Permissions for STMD Repository
+    chmod 0664 /sys/devices/pci0000:00/0000:00:05.1/power/control
+    chown system system /sys/devices/pci0000:00/0000:00:05.1/power/control
+
+    setprop ril.coredumpwarning.enable 1
+
+# Permissions for modem flashing
+    chmod 0660 /sys/module/hsi_dlp/parameters/set_flashing_mode
+    chown root radio /sys/module/hsi_dlp/parameters/set_flashing_mode
+
+on boot
+#  Permissions for modem_nvram files used for pin caching
+    chmod 0770 /sys/kernel/modem_nvram
+    chown system radio /sys/kernel/modem_nvram
+    chown system radio /sys/kernel/modem_nvram/dump
+    chown system radio /sys/kernel/modem_nvram/clear
+    chown system radio /sys/kernel/modem_nvram/size
+
+#  Permissions for RapidRIL Repository
+    chmod 0770 /system/etc/rril
+    chown radio radio /system/etc/rril
+
+    chmod 0664  /system/etc/rril/repository.txt
+    chown radio radio /system/etc/rril/repository.txt
+    chmod 0775 sys/devices/pci0000:00/0000:00:02.3/hsm
+
+on post-fs-data
+# create NVM log folder
+    mkdir /data/modem
+    chown system radio /data/modem
+    chmod 770 /data/modem
+
+# create factory modem FW folder
+    mkdir /factory/telephony
+    chown system radio /factory/telephony
+    chmod 770 /factory/telephony
+
+# create config modem FW folder
+    mkdir /config/telephony
+    chown system radio /config/telephony
+    chmod 770 /config/telephony
+
+# create cache modem firmware folder
+    mkdir /cache/telephony
+    chown system radio /cache/telephony
+    chmod 770 /cache/telephony
+
+# adding nvm manager
+service nvmmanager /system/bin/nvm_server
+    class core
+    socket nvm-ctl stream 660 system radio
+    user system
+    group radio cache inet misc system
+    seclabel u:r:nvm_server:s0
+
+# MMGR (Modem Manager)
+service mmgr  /system/bin/mmgr
+    class main
+    socket mmgr stream 660 system radio
+    user system
+    group radio cache inet misc system
+
+ Load Intrinsyc RapidRIL
+service ril-daemon /system/bin/rild -l /system/lib/librapid-ril-core.so
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    class main
+    user root
+    group radio cache inet misc audio
+
+service ril-daemon2 /system/bin/rild -l /system/lib/librapid-ril-core.so -c 2
+    socket rild2 stream 660 root radio
+    socket rild-debug2 stream 660 radio system
+    class main
+    user root
+    group radio cache inet misc audio
+    disabled
+
+service ril-daemon /system/bin/rild \
+    -l /system/lib/libxgold-ril.so -- -d /dev/ttyGSM1
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    user root
+    group system dhcp radio cache inet misc
+    oneshot
+
+# MTS SERVICES
+
+#logging over pti
+service pti_sigusr1 /system/bin/pti_sigusr1
+    user radio
+    group radio
+    oneshot
+    disabled
+
+# mts persistent
+service mtsp /system/bin/mts
+    user system
+    group radio log media_rw sdcard_rw inet
+    disabled
+
+# mts oneshot
+service mtso /system/bin/mts
+    user system
+    group radio log media_rw sdcard_rw inet
+    oneshot
+    disabled
+
+# AT proxy service
+service proxy /system/bin/proxy -d /dev/gsmtty1 -m /dev/gsmtty10
+    socket atproxy-status stream 660 system radio
+    class main
+    user radio
+    group radio system cache inet misc
+    disabled
+
+# AT proxy tunneling mode service
+service proxy-tunneling /system/bin/proxy -d /dev/gsmtty1 -m /dev/gsmtty10 -t on
+    class main
+    user radio
+    group radio system cache inet misc
+    disabled
+
+# AT proxy USB reset utility service
+service atproxy_usbreset /system/bin/atproxy_usbreset
+    oneshot
+    user radio
+    disabled
+
+on property:persist.radio.multisim.config=dsds
+    start ril-daemon
+    start ril-daemon2
+
+# MTS Properties, events trigging service
+
+on property:persist.service.mtsp.enable=1
+    start mtsp
+
+on property:persist.service.mtsp.enable=0
+    stop mtsp
+
+on property:persist.system.at-proxy.mode=*
+setprop system.at-proxy.mode ${persist.system.at-proxy.mode}
+
+on property:system.at-proxy.mode=0
+    stop proxy
+    stop proxy-tunneling
+    start atproxy_usbreset
+
+on property:system.at-proxy.mode=1
+    stop ad_proxy
+    stop proxy-tunneling
+    setprop sys.usb.config rndis,acm,adb
+    start proxy
+
+on property:system.at-proxy.mode=2
+    stop ad_proxy
+    stop proxy
+    setprop sys.usb.config rndis,acm,adb
+    start proxy-tunneling
+

@@ -1,0 +1,70 @@
+on init
+    setprop alsa.mixer.earpiece Headphone
+    setprop alsa.mixer.speaker Speaker
+    setprop alsa.mixer.headset Headphone
+    setprop alsa.mixer.headphone Headphone
+    setprop alsa.mixer.builtinMic Mic1
+    setprop alsa.mixer.headsetMic Mic1
+    setprop alsa.mixer.defaultCard cloverviewaudio
+    setprop alsa.mixer.defaultGain 1.0
+    setprop Audiocomms.Audience.IsPresent "true"
+    #CSL codec delay of 20 ms due to SRC
+    setprop Audio.Media.CodecDelayMs 20
+
+    #audio setup delay - FW Init and first render time in ms
+    setprop lpa.audiosetup.time 70
+
+    # atomisp driver depends on these modules. So load these on init. atomisp
+    # driver is loaded from "on charger" trigger as well from init.common.rc
+    insmod /lib/modules/videobuf-core.ko
+    insmod /lib/modules/videobuf-dma-contig.ko
+    insmod /lib/modules/videobuf-vmalloc.ko
+    insmod /lib/modules/videobuf2-core.ko
+    insmod /lib/modules/videobuf2-memops.ko
+
+on post-fs
+    # Defer loading modules that may require firmware till fs is ready
+
+#    insmod /lib/modules/ov8830.ko
+#    insmod /lib/modules/mt9m114.ko
+#    insmod /lib/modules/ar0543_raw.ko
+#    insmod /lib/modules/hm2056_raw.ko
+#    insmod /lib/modules/lm3554.ko
+    insmod /lib/modules/imx111.ko
+    insmod /lib/modules/imx219.ko
+    insmod /lib/modules/t4k35.ko
+    insmod /lib/modules/t4k35_180.ko
+    
+    insmod /lib/modules/t4k37.ko
+    insmod /lib/modules/mn34130.ko  	
+    
+    insmod /lib/modules/hm2056.ko
+    insmod /lib/modules/gc2155.ko
+    
+    insmod /lib/modules/rt8515.ko
+    insmod /lib/modules/atomisp-css2300.ko dypool_enable=y
+    # Enable full ISP timeout dumps
+    write /sys/kernel/debug/dynamic_debug/control "file drivers/media/video/atomisp2/css/sh_css_debug.c +p"
+
+on post-fs
+#  Permissions for Vibrator
+    chown system system /sys/devices/pci0000:00/0000:00:06.6/vibrator
+    chown media system /sys/devices/platform/ctp_rhb_cs42l73/Cloverview\ virtual-ASP/pmdown_time
+
+service ad_proxy /system/xbin/ad_proxy
+    class core
+    user root
+    group system cache misc audio
+    disabled
+
+on property:service.ad_proxy.enable=0
+    stop ad_proxy
+    setprop system.at-proxy.mode ${persist.system.at-proxy.mode}
+
+on property:service.ad_proxy.enable=1
+    stop proxy
+    stop proxy-tunneling
+    setprop sys.usb.config rndis,acm,adb
+    start ad_proxy
+
+

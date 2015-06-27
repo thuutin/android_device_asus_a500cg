@@ -1,0 +1,9 @@
+on post-fs-data
+
+   mkdir /data/gps 771 system system
+   chown system system /data/gps
+
+service gpsd /system/bin/gpsd -c /system/etc/gpsconfig.xml
+	class main
+	user gps
+	group system inet radio sdcard_rw

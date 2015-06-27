@@ -1,0 +1,19 @@
+/dev/block/by-name/system	/system 	ext4	ro,noatime                                                         	wait
+/dev/block/by-name/cache	/cache  	ext4	nosuid,nodev,noatime,barrier=1,data=ordered                        	wait,check
+/dev/block/by-name/data		/data   	ext4	nosuid,nodev,noatime,barrier=1,data=ordered,noauto_da_alloc		wait,check,encryptable=/factory/userdata_footer
+/dev/block/by-name/config 	/config   	ext4	nosuid,nodev,noatime,data=ordered				wait
+/dev/block/by-name/factory	/factory	ext4  	nosuid,nodev,noatime,data=ordered				wait
+
+/dev/block/zram0		none		swap	defaults								zramsize=67108864
+
+/dev/block/by-name/boot 	/boot       emmc    defaults       defaults
+/dev/block/by-name/recovery       /recovery        emmc    defaults             defaults
+
+#
+# -> demo
+#
+# Original mount from zenfone 5
+#
+# -> converted to mmcblk
+# -> /ramdisk/recovery.fstab
+#

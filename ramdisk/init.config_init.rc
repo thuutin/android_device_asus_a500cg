@@ -1,0 +1,6 @@
+on fs
+    mkdir /local_cfg
+    start config_init
+
+service config_init /system/bin/sh /config.sh
+    disabled

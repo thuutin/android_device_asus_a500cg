@@ -1,0 +1,1 @@
+allow nvm_server nvm_server:socket_device tmpfs;

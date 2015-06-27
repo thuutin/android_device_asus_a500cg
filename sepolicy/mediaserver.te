@@ -1,0 +1,7 @@
+allow mediaserver graphics_device:dir search;
+#allow mediaserver device:chr_file {read write};
+allow mediaserver default_prop:property_service set;
+
+allow mediaserver system_data_file:sock_file write;
+allow mediaserver intel_sst_ctrl_device:chr_file {read write};
+allow init mediaserver:process { setsched };

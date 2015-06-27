@@ -1,0 +1,18 @@
+on init
+    # add widi directory
+    mkdir /data/widi 0770 wifi wifi
+    insmod /lib/modules/fmdrv_chr.ko
+
+    insmod /lib/modules/ipv6.ko
+
+#  Permissions for FM Radio
+    chmod 0777 /dev/tifm
+
+on post-fs-data
+    mkdir /data/misc/dhcp 0770 dhcp wifi
+
+    ## increase default value of data to be dumped on HSI wakeups
+    write /sys/module/intel_mid_hsi/parameters/wakeup_packet_len 32
+
+on property:init.svc.wpa_supplicant=stopped
+    stop dhcpcd

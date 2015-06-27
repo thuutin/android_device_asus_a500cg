@@ -1,0 +1,1 @@
+fs_use_xattr ecryptfs u:object_r:ecryptfs:s0;

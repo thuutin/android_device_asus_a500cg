@@ -1,0 +1,21 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+wifi.version.driver=5.90.195.89.38
+gps.version.driver=6.19.6.216527
+bt.version.driver=V10.00.01
+ro.sf.lcd_density=320
+ro.opengles.version=131072
+gsm.net.interface=rmnet0
+persist.system.at-proxy.mode=0
+ro.secure=0
+ro.allow.mock.location=1
+ro.debuggable=1
+ro.zygote=zygote32
+persist.sys.usb.config=mtp
+ro.dalvik.vm.native.bridge=libhoudini.so
+ro.adb.secure=0
+dalvik.vm.dex2oat-Xms=64m
+dalvik.vm.dex2oat-Xmx=512m
+dalvik.vm.image-dex2oat-Xms=64m
+dalvik.vm.image-dex2oat-Xmx=64m

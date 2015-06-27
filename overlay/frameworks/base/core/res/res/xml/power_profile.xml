@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+**
+** Copyright 2012, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License")
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<device name="Android">
+    <item name="none">0</item>
+    <item name="screen.on">158</item>
+    <item name="bluetooth.active">15</item>
+    <item name="bluetooth.on">6</item>
+    <item name="screen.full">295</item>
+    <item name="wifi.on">9</item>
+    <item name="wifi.active">25</item>
+    <item name="wifi.scan">12</item>
+    <item name="dsp.audio">90</item>
+    <item name="dsp.video">96</item>
+    <item name="radio.active">34</item>
+    <item name="radio.scanning">34</item>
+    <item name="gps.on">177</item>
+    <array name="radio.on">
+        <value>34</value>
+        <value>34</value>
+    </array>
+    <array name="cpu.speeds">
+        <value>800000</value>
+        <value>933000</value>
+        <value>1333000</value>
+        <value>1600000</value>
+        <value>1866000</value>
+        <value>2000000</value>
+    </array>
+    <item name="cpu.idle">13.5</item>
+    <item name="cpu.awake">29</item>
+    <array name="cpu.active">
+        <value>484</value>
+        <value>567</value>
+        <value>692</value>
+        <value>1021</value>
+        <value>1021</value>
+        <value>1021</value>
+    </array>
+    <item name="battery.capacity">2050</item>
+
+</device>
