@@ -1,1 +1,4 @@
-
+type bcu_cpufreqrel_service,	service_manager_type;
+type akmd_service, 	service_manager_type;
+type mmgr_service, 		service_manager_type;
+type customize_service, 	service_manager_type;

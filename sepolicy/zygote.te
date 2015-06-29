@@ -1,6 +1,6 @@
+#allow init self:capability2 { mac_admin };
 allow zygote property_socket:sock_file write;
 #allow zygote device:chr_file { read write };
 allow zygote system_prop:property_service set;
 #allow zygote device:chr_file open;
 
-allow init self:capability2 { mac_admin };

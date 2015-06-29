@@ -6,7 +6,7 @@ type thermal_socket, file_type;
 type config_file, file_type;
 type factory_file, file_type;
 type mmgr_socket, file_type;
-type mmgr_exec, exec_type;
+type mmgr_exec, exec_type, file_type;
 
 type sysfs_uart_power_ctrl, dev_type;
 type nvm_ctl_socket, file_type;
@@ -25,5 +25,5 @@ type dpstmgr_exec, exec_type;
 
 type atproxy_usbreset_exec, exec_type;
 
-
+#type charge_exec, exec_type;
 

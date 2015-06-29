@@ -1,0 +1,1 @@
+allow sysfs_uart_power_ctrl sysfs:filesystem associate;

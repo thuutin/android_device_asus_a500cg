@@ -39,13 +39,13 @@
 /dev/i2c(.*)?                           u:object_r:i2c_device:s0
 
 # GPU
-/dev/pvr_sync               u:object_r:gpu_device:s0
+/dev/pvr_sync               		u:object_r:gpu_device:s0
 
 # crashlogd
-/system/bin/crashlogd           u:object_r:crashlogd_exec:s0
+/system/bin/crashlogd           	u:object_r:crashlogd_exec:s0
 
 # wlan_prov
-/system/bin/wlan_prov           u:object_r:wlan_prov_exec:s0
+/system/bin/wlan_prov          		u:object_r:wlan_prov_exec:s0
 
 # bd_prov (bluetooth)
 /system/bin/bd_prov             u:object_r:bd_prov_exec:s0
@@ -98,7 +98,7 @@
 /logs(/.*)?                     u:object_r:log_file:s0
 /config(/.*)?                   u:object_r:config_file:s0
 /factory(/.*)?                  u:object_r:factory_file:s0
-
+#/charger			u:object_r:charge_exec:s0
 #gauge
 /system/bin/upi_ug31xx          u:object_r:gauge_exec:s0
 /dev/ug31xx                     u:object_r:gauge_device:s0

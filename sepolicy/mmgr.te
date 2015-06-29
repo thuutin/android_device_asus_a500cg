@@ -1,0 +1,5 @@
+allow mmgr shell_exec:file execute;
+allow mmgr_exec shell_exec:file execute;
+allow shell mmgr_exec:file getattr;
+allow mmgr_exec mmgr_socket:sock_file {ioctl read write create getattr setattr lock relabelfrom relabelto append};
+

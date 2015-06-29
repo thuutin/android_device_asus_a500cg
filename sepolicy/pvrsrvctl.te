@@ -5,4 +5,4 @@ init_daemon_domain(pvrsrvctl)
 # allow access to /dev/dri/card0
 allow pvrsrvctl gpu_device:chr_file rw_file_perms;
 # allow graphics driver initialization
-allow pvrsrvctl self:capability sys_admin;
+allow pvrsrvctl self:capability {sys_admin sys_module};

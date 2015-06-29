@@ -1,0 +1,1 @@
+allow ueventd sysfs_uart_power_ctrl:file {relabelto getattr};

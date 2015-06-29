@@ -5,3 +5,4 @@ allow shell surfaceflinger_tmpfs:file { read write };
 userdebug_or_eng(`
   allow shell rootfs:file execute_no_trans;
 ')
+allow shell logcat_exec:file getattr;
