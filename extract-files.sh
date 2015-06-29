@@ -21,16 +21,14 @@ DEVICE=a500cg
 
 mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary
 
-adb root
-adb wait-for-device
-
+ASUS=~/Downloads/asus_3
 echo "Pulling proprietary files..."
 for FILE in `cat ../$DEVICE/proprietary-files.txt | grep -v ^# | grep -v ^$`; do
 DIR=`dirname $FILE`
     if [ ! -d ../../../vendor/$VENDOR/$DEVICE/proprietary/$DIR ]; then
 mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary/$DIR
     fi
-adb pull /$FILE ../../../vendor/$VENDOR/$DEVICE/proprietary/$FILE
+cp -rf $ASUS/$FILE ../../../vendor/$VENDOR/$DEVICE/proprietary/$FILE
 done
 
 

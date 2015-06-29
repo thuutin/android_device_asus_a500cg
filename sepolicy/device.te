@@ -1,7 +1,5 @@
 #GPU (used by most UI apps)
 
-type nvm_server_exec, exec_type, file_type;
-type nvm_server, exec_type;
 type intel_sst_ctrl_device, dev_type;
 type gauge_device, dev_type;
 type gauge_exec, exec_type;

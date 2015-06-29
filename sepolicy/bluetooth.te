@@ -1,1 +1,5 @@
 allow bluetooth bluetooth_control:chr_file { rw_file_perms };
+allow bluetooth config_file:dir { search read };
+allow bluetooth sysfs:file {write};
+allow bluetooth tty_device:chr_file {read write};
+allow bluetooth tty_device:chr_file {open};

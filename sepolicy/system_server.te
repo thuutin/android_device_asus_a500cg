@@ -15,5 +15,3 @@ allow system_server gps_data_file:dir { search add_name write };
 allow system_server init:unix_dgram_socket sendto;
 allow system_server surfaceflinger_tmpfs:file { read write };
 
-allow nvm_server socket_device:sock_file write;
-allow nvm_server system_file:file entrypoint;

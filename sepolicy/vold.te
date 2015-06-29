@@ -4,4 +4,5 @@ allow vold kernel:system module_request;
 allow vold system_data_file:dir setattr;
 allow vold ecryptfs:filesystem mount;
 allow vold ecryptfs:filesystem unmount;
-allow vold config_file:dir getattr;
+allow vold config_file:dir {open ioctl read getattr};
+allow vold factory_file:dir { open ioctl read getattr};

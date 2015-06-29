@@ -89,6 +89,7 @@ system/lib/libmmgr_cnx.so
 system/lib/libmmgr_utils.so
 system/lib/libevent-listener.so
 system/lib/libproperty.so
+system/lib/libinput.so
 
 # hardware/intel/PREBUILT/libsharedbuffer (libvideoeditor_cor.so)
 system/lib/libsharedbuffer.so
@@ -514,15 +515,15 @@ system/bin/wpa_supplicant
 # system/lib/libcsmbinder.so
 
 # WiDi
-#system/bin/mediaserver
+system/bin/mediaserver
 system/etc/widi/widi.conf
 system/lib/libhwcwidi.so
-#system/lib/libwidiclient.so
-#system/lib/libwidijni.so
+system/lib/libwidiclient.so
+system/lib/libwidijni.so
 system/lib/libwidimedia.so
 system/lib/libwidirtspsink.so
 system/lib/libwidirtsp.so
-#system/lib/libwidiservice.so
+system/lib/libwidiservice.so
 system/lib/libwidiuibc.so
 
 # Voice
@@ -598,7 +599,7 @@ system/lib/libinterface-provider.so
 # system/lib/libosl-maxxaudio-itf.so
 # system/lib/soundfx/libmaxxeffect-cembedded.so
 # system/vendor/etc/audio_effects.conf
-#system/etc/audio_policy.conf
+system/etc/audio_policy.conf
 
 # Touch screen
 system/etc/firmware/s3202_gff.img
@@ -608,19 +609,19 @@ system/etc/firmware/s3202_ogs.img
 system/bin/parameter
 system/lib/libparameter.so
 system/etc/parameter-framework/ParameterFrameworkConfiguration_a500cg.xml
-system/etc/parameter-framework/Settings
-system/etc/parameter-framework/Settings/Audio
+#system/etc/parameter-framework/Settings
+#system/etc/parameter-framework/Settings/Audio
 system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains_a502cg.xml
 system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains_a600cg.xml
 system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains_a500cg.xml
-system/etc/parameter-framework/Settings/Vibrator
+#system/etc/parameter-framework/Settings/Vibrator
 system/etc/parameter-framework/Settings/Vibrator/VibratorConfigurableDomains.xml
-system/etc/parameter-framework/Settings/Route
+#system/etc/parameter-framework/Settings/Route
 system/etc/parameter-framework/Settings/Route/RouteConfigurableDomains.xml
 system/etc/parameter-framework/ParameterFrameworkConfiguration_a600cg.xml
 system/etc/parameter-framework/ParameterFrameworkConfigurationVibrator.xml
-system/etc/parameter-framework/Structure
-system/etc/parameter-framework/Structure/Audio
+#system/etc/parameter-framework/Structure
+#system/etc/parameter-framework/Structure/Audio
 system/etc/parameter-framework/Structure/Audio/IMCSubsystem.xml
 system/etc/parameter-framework/Structure/Audio/Realtek_RT5647.xml
 system/etc/parameter-framework/Structure/Audio/LPESubsystem.xml
@@ -629,11 +630,11 @@ system/etc/parameter-framework/Structure/Audio/ConfigurationSubsystem.xml
 system/etc/parameter-framework/Structure/Audio/AudioClass.xml
 system/etc/parameter-framework/Structure/Audio/LPEMixerSubsystem.xml
 system/etc/parameter-framework/Structure/Audio/SysfsPmdownTimeSubsystem.xml
-system/etc/parameter-framework/Structure/Vibrator
+#system/etc/parameter-framework/Structure/Vibrator
 system/etc/parameter-framework/Structure/Vibrator/MiscConfigurationSubsystem.xml
 system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorSubsystem.xml
 system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorClass.xml
-system/etc/parameter-framework/Structure/Route
+#system/etc/parameter-framework/Structure/Route
 system/etc/parameter-framework/Structure/Route/RouteClass.xml
 system/etc/parameter-framework/Structure/Route/RouteSubsystem.xml
 system/etc/parameter-framework/Structure/Route/RouteSubsystem-RoutesTypes.xml
@@ -645,11 +646,11 @@ system/lib/parameter-framework-plugins/Audio/libtinyalsa-subsystem.so
 system/lib/parameter-framework-plugins/Audio/liblpe-subsystem.so
 system/lib/parameter-framework-plugins/Audio/libaudience-subsystem.so
 system/lib/parameter-framework-plugins/Audio/libimc-subsystem.so
-system/lib/parameter-framework-plugins/System
+#system/lib/parameter-framework-plugins/System
 system/lib/parameter-framework-plugins/System/libproperty-subsystem.so
-system/lib/parameter-framework-plugins/Fs
+#system/lib/parameter-framework-plugins/Fs
 system/lib/parameter-framework-plugins/Fs/libfs-subsystem.so
-system/lib/parameter-framework-plugins/Route
+#system/lib/parameter-framework-plugins/Route
 system/lib/parameter-framework-plugins/Route/libroute-subsystem.so
 
 # vendor/intel/hardware/PRIVATE/chaabi
@@ -745,15 +746,14 @@ system/etc/telephony/XMM7260_CONF_7.xml
 system/etc/telephony/XMM7260_CONF_8.xml
 
 #copy this manualy on /system/lib :)
-system/lib/ditlib_a500cg/libxditk_DIT_Manager.so
-system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so
+system/lib/libxditk_DIT_Manager.so
+system/lib/libxditk_DIT_CloverTrailPlus.so
 
-system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so
-system/lib/ditlib_a600cg/libxditk_DIT_Manager.so
+#system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so
+#system/lib/ditlib_a600cg/libxditk_DIT_Manager.so
 
 # add extra hardware module we see that this is triger to start
 system/lib/hw/audio.codec_offload.redhookbay.so
-system/lib/hw/a600cg.sensors.redhookbay.so
 system/lib/hw/audio.hdmi.redhookbay.so
 system/lib/hw/audio.hs_usb.redhookbay.so
 system/lib/hw/audio.primary.redhookbay.so
@@ -794,7 +794,9 @@ system/vendor/lib/libwvm.so
 system/vendor/lib/libWVStreamControlAPI_L1.so
 
 # manully copy the /system/etc/catalog if you need
-
+/system/etc/catalog/DSDS_A500CG/platform/init.props
+/system/etc/catalog/DSDS_A500CG/telephony_config/init.props
+/system/etc/media_codecs.xml
 # sound
 system/etc/icesoundpresets.def
 system/etc/icesoundpresets_a500cg.def

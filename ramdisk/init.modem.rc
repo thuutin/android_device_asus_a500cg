@@ -56,7 +56,6 @@ service nvmmanager /system/bin/nvm_server
     socket nvm-ctl stream 660 system radio
     user system
     group radio cache inet misc system
-    seclabel u:r:nvm_server:s0
 
 # MMGR (Modem Manager)
 service mmgr  /system/bin/mmgr

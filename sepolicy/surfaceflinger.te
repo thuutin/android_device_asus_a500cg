@@ -1,1 +1,2 @@
+allow surfaceflinger hwc_service:service_manager add;
 allow surfaceflinger gpu_device:chr_file rw_file_perms;

@@ -112,17 +112,18 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/sbin/pclinkd:root/sbin/pclinkd \
     $(LOCAL_PATH)/ramdisk/sbin/intel_prop:root/sbin/intel_prop \
     $(LOCAL_PATH)/ramdisk/sbin/thermald:root/sbin/thermald \
-    $(LOCAL_PATH)/ramdisk/sbin/healthd:root/sbin/healthd	\
+    $(LOCAL_PATH)/ramdisk/sbin/healthd:root/sbin/healthd \
     $(LOCAL_PATH)/ramdisk/charger:root/charger
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/DSDS_A500CG/platform/init.props:root/local_cfg/platform/init.props \
+    $(LOCAL_PATH)/ramdisk/DSDS_A500CG/telephony_config/init.props:root/local_cfg/telephony_config/init.props
 
 # Binary to be replaced with source code ..
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/twrp.fstab:recovery/root/twrp.fstab \
     $(LOCAL_PATH)/ramdisk/sbin/healthd:recovery/root/sbin/healthd \
-    $(LOCAL_PATH)/ramdisk/init.recovery.redhookbay.rc:root/init.recovery.redhookbay.rc \
-    $(LOCAL_PATH)/ramdisk/sepolicy:root/sepolicy
-
+    $(LOCAL_PATH)/ramdisk/init.recovery.redhookbay.rc:root/init.recovery.redhookbay.rc 
 
 
 # Ramdisk fstab / rc files
@@ -157,6 +158,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.zram.rc:root/init.zram.rc \
     $(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.redhookbay.rc:root/ueventd.redhookbay.rc \
+    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.aosp.rc:root/init.aosp.rc
 
 

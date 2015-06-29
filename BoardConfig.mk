@@ -240,7 +240,17 @@ BOARD_SEPOLICY_UNION += \
     su.te   \
     system_server.te \
     service.te \
-    init.te
+    mmgr.te \
+    init.te \
+    kernel.te \
+    sysfs_uart_power_ctrl.te \
+    ueventd.te \
+    logcat.te \
+    netd.te \
+    wpa.te \
+    rild.te \
+    akmd.te \
+    untrusted_app.te
 
 #BOARD_SEPOLICY_UNION += \
 #	sepfs.te 

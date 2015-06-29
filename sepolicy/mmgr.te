@@ -1,5 +1,26 @@
-allow mmgr shell_exec:file execute;
+allow mmgr shell_exec:file {read open execute execute_no_trans};
 allow mmgr_exec shell_exec:file execute;
 allow shell mmgr_exec:file getattr;
 allow mmgr_exec mmgr_socket:sock_file {ioctl read write create getattr setattr lock relabelfrom relabelto append};
 
+init_daemon_domain(mmgr)
+allow mmgr tty_device:chr_file {read write open ioctl};
+allow mmgr config_file:dir {add_name write search remove_name getattr read unlink};
+allow mmgr config_file:file {write create read getattr open unlink};
+allow mmgr sysfs_wake_lock:file {read write open};
+allow mmgr factory_file:dir search;
+allow mmgr factory_file:file {read open };
+allow mmgr system_file:file {execute_no_trans};
+allow mmgr init:unix_stream_socket connectto;
+allow mmgr cache_file:dir {add_name create setattr write remove_name};
+allow mmgr cache_file:file {unlink create write open};
+
+allow mmgr property_socket:sock_file write;
+allow mmgr system_prop:property_service set;
+allow mmgr zygote_exec:file {getattr read open execute};
+allow mmgr sysfs:file write;
+
+#log
+allow mmgr log_file:file {write read open unlink getattr};
+allow mmgr system_data_file:dir { add_name create remove_name write};
+allow mmgr system_data_file:file {create write open };

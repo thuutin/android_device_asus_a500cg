@@ -5,8 +5,15 @@ allow mediaserver switch_ctrl_device:chr_file {read write open ioctl};
 allow mediaserver system_data_file:sock_file write;
 allow mediaserver intel_sst_ctrl_device:chr_file {read write open ioctl};
 allow init mediaserver:process { setsched };
+
 allow mediaserver asec_apk_file:dir { add_name write};
+allow mediaserver asec_apk_file:file {open write};
+
 allow mediaserver factory_file:dir search;
 allow mediaserver system_server:unix_stream_socket {read write};
-allow mediaserver factory_file:file read;
+allow mediaserver factory_file:file {open read getattr};
 allow mediaserver asec_apk_file:file create;
+allow mediaserver sysfs_wake_lock:file {read open write};
+allow mediaserver mmgr_socket:sock_file {write};
+allow mediaserver mmgr:unix_stream_socket {connectto};
+allow mediaserver tty_device:chr_file {read open ioctl write getattr};
