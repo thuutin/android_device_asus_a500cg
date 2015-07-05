@@ -1,2 +1,3 @@
 allow untrusted_app unlabeled:filesystem {getattr};
 allow untrusted_app debugfs:file { getattr };
+allow untrusted_app logcat_exec:file {execute};
