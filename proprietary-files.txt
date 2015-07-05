@@ -1,5 +1,5 @@
 # Compass
-system/bin/a600cg_akmd09911
+#system/bin/a600cg_akmd09911
 system/bin/akmd09911
 # Vibrator
 system/bin/vibrator
@@ -397,8 +397,8 @@ system/lib/DIT_AT_BACK_PREVIEW.cfg
 system/lib/DIT_AT_FRONT_VIDEO.cfg
 system/lib/DIT_AT_BACK_NORMAL_219.cfg.fac
 system/lib/DIT_AT_BACK_NORMAL.cfg
-#system/etc/camera_profiles.xml
-
+system/etc/camera_profiles_a500cg.xml
+system/etc/media_profiles.xml
 # Medfield Penwell Image Signal Processor
 system/etc/firmware/isp_acc_deghosting_css15.bin
 system/etc/firmware/isp_acc_fusion_css15.bin
@@ -438,7 +438,11 @@ system/lib/libia_mkn.so
 system/lib/libia_nvm.so
 
 # ASUS Camera
-#system/lib/libcameraap.so
+system/lib/libcameraap.so
+system/lib/libcamera_client.so
+system/lib/libcamera_defocus.so
+system/lib/libcamera_metadata.so
+system/lib/libcamera_pano.so
 #system/lib/libarcsoft_panorama_burstcapture.so
 #system/lib/libarcsoft_sensorndk.so
 #system/lib/libjni_face_effect.so

@@ -1,1 +1,2 @@
 allow untrusted_app unlabeled:filesystem {getattr};
+allow untrusted_app debugfs:file { getattr };

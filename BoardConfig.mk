@@ -250,6 +250,7 @@ BOARD_SEPOLICY_UNION += \
     wpa.te \
     rild.te \
     akmd.te \
+    gauge.te \
     untrusted_app.te
 
 #BOARD_SEPOLICY_UNION += \

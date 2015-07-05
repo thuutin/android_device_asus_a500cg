@@ -2,7 +2,7 @@
 
 type intel_sst_ctrl_device, dev_type;
 type gauge_device, dev_type;
-type gauge_exec, exec_type;
+#type gauge_exec, exec_type;
 
 type mmgr, domain;
 type sep_device, dev_type;
