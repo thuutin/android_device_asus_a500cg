@@ -352,7 +352,7 @@ system/lib/libtcs.so
 system/bin/gpsd
 system/bin/gpslogd
 system/etc/gps.conf
-#system/etc/gpsconfig.xml
+system/etc/gpsconfig.xml
 system/etc/libgps.conf
 
 # BT
@@ -452,8 +452,8 @@ system/lib/libcamera_pano.so
 #system/lib/libjni_picbest_static.so
 #system/lib/libsarcsoftface.so
 
-system/etc/gpsconfig_HULA.xml
-system/etc/gpsconfig_NoHULA.xml
+#system/etc/gpsconfig_HULA.xml
+#system/etc/gpsconfig_NoHULA.xml
 system/etc/icesoundpresets_a500cg.def
 system/etc/thermal_sensor_config_a500cg.xml
 system/etc/thermal_sensor_config.xml
@@ -522,12 +522,12 @@ system/bin/wpa_supplicant
 system/bin/mediaserver
 system/etc/widi/widi.conf
 system/lib/libhwcwidi.so
-system/lib/libwidiclient.so
-system/lib/libwidijni.so
+#system/lib/libwidiclient.so
+#system/lib/libwidijni.so
 system/lib/libwidimedia.so
 system/lib/libwidirtspsink.so
 system/lib/libwidirtsp.so
-system/lib/libwidiservice.so
+#system/lib/libwidiservice.so
 system/lib/libwidiuibc.so
 
 # Voice
