@@ -64,7 +64,7 @@ service mmgr  /system/bin/mmgr
     user system
     group radio cache inet misc system
 
- Load Intrinsyc RapidRIL
+# Load Intrinsyc RapidRIL
 service ril-daemon /system/bin/rild -l /system/lib/librapid-ril-core.so
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system

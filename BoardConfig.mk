@@ -180,8 +180,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # File system
 # Storage information
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
+#BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+#BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 
@@ -251,6 +251,7 @@ BOARD_SEPOLICY_UNION += \
     rild.te \
     akmd.te \
     gauge.te \
+    customize.te \
     untrusted_app.te
 
 #BOARD_SEPOLICY_UNION += \
