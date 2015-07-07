@@ -1,20 +1,21 @@
 # Compass
-#system/bin/a600cg_akmd09911
 system/bin/akmd09911
+
 # Vibrator
 system/bin/vibrator
+
 # Storage
 system/bin/vold
+
 # Intel blob
 system/bin/droidboot
 system/bin/msvdx_bin
 system/bin/topaz_bin
 system/bin/customize_service
-#system/bin/miu-app
+
 system/bin/dpstmgr
 system/lib/libdm_dpst.so
-#system/bin/dbus-daemon
-#system/lib/libdbus.so
+
 # extra audio
 system/bin/tinycap
 system/bin/tinymix
@@ -33,17 +34,10 @@ system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so
 system/lib/ditlib_a500cg/libxditk_DIT_Manager.so
 
 # TeleService
-#system/etc/plmns.xml
 # Racoon service
 system/etc/fg_config.bin
 
 # ASUS blob
-#system/etc/pwr-balance.sh
-#system/etc/pwr-normal.sh
-#system/etc/pwr-saving.sh
-#system/etc/pwr-videoplay.sh
-#system/etc/pwr-web_browsing.sh
-#system/etc/init_log_date.sh
 system/etc/sarconfig.xml
 system/etc/sensor_hal_config_default.xml
 system/etc/sensor_hal_config_general_default.xml
@@ -51,11 +45,8 @@ system/etc/sensor_hal_config_general_scale-pr1.xml
 system/etc/sensor_hal_config_scale-pr1.xml
 system/etc/thermal_sensor_config.xml
 system/etc/thermal_sensor_config_a500cg.xml
-system/etc/thermal_sensor_config_a600cg.xml
 system/etc/thermal_throttle_config.xml
 system/etc/thermal_throttle_config_a500cg.xml
-system/etc/thermal_throttle_config_a600cg.xml
-#system/etc/vold.fstab
 
 # system/etc/permissions
 system/etc/permissions/com.intel.camera.extensions.xml
@@ -68,7 +59,6 @@ system/etc/permissions/com.intel.widi.sink.xml
 # system/framework
 system/framework/com.intel.camera.extensions.jar
 system/framework/com.intel.config.jar
-#system/framework/com.intel.internal.telephony.OemTelephony.jar
 system/framework/com.intel.multidisplay.jar
 system/framework/com.intel.security.lib.sepdrmjni.jar
 system/framework/com.intel.security.service.sepmanager.jar
@@ -93,21 +83,20 @@ system/lib/libinput.so
 
 # hardware/intel/PREBUILT/libsharedbuffer (libvideoeditor_cor.so)
 system/lib/libsharedbuffer.so
+
 # Intel 
 system/lib/libI420colorconvert.so
+
 # ASUS
 system/lib/libdumpsys_logtool.so
-# openssl
-#system/lib/libaesni.so
+
 # platform/external/tinyalsa
 system/lib/libtinyalsa.so
+
 # ??
 system/lib/libCameraFaceDetection.so
-#system/lib/libjni_egl_fence.so
-#system/lib/libjni_filter_show.so
 system/lib/libola.so
 system/lib/libwatchdogd_devel.so
-#system/lib/libgifencoder.so
 
 # system/lib/hw
 system/lib/hw/gps.redhookbay.so
@@ -300,8 +289,6 @@ system/usr/keychars/synaptics_dsx.kcm
 system/usr/share/alsa/alsa.conf
 
 # Intel blobs
-#system/vendor/lib/librsccompiler.so
-#system/vendor/lib/librsccore.bc
 system/lib/libclcore.bc    
 system/lib/libclcore_debug.bc
 system/lib/libclcore_x86.bc
@@ -314,15 +301,13 @@ system/lib/librapid-ril-util.so
 
 # mamgr
 system/etc/mamgr/xmm1.xml
+
 # binfmt_misc
 system/etc/binfmt_misc/arm_dyn
 system/etc/binfmt_misc/arm_exe
 
 # vendor/intel/hardware/PRIVATE/Modem_Updater
 system/lib/libmodemupdate.so
-
-# Modem
-#system/etc/simcfg.sh
 
 # vendor/intel/hardware/PRIVATE/mmgr
 system/bin/activate_trace_modem
@@ -332,17 +317,13 @@ system/bin/mts
 system/bin/proxy
 system/bin/nvm_server
 system/etc/telephony/mmgr_6360_conf_1.xml
-#system/etc/telephony/mmgr_6360_conf_flashless.xml
-#system/etc/telephony/mmgr_7160_conf_1.xml
 system/etc/telephony/mmgr_7160_conf_2.xml
-#system/etc/telephony/mmgr_7160_conf_3.xml
-#system/etc/telephony/mmgr_7160_conf_4.xml
-#system/etc/telephony/mmgr_7160_conf_6.xml
 system/etc/telephony/mmgr_7260_conf_1.xml
 system/etc/telephony/mmgr_7260_conf_2.xml
 system/etc/telephony/mmgr_7260_conf_4.xml
 system/etc/telephony/mmgr_7260_conf_5.xml
-#system/etc/telephony/telephony_scalability.xml
+
+# mmgr
 system/lib/libmmgr_cnx.so
 system/lib/libmmgr_utils.so
 system/lib/libmmgrcli.so
@@ -362,8 +343,6 @@ system/etc/firmware/BCM2076B1_002.002.004.0138.0139.hcd
 system/etc/permissions/com.broadcom.bt.xml
 system/framework/com.broadcom.bt.jar
 system/etc/bluetooth/bt_vendor.conf
-#system/lib/libbt-aptX-x86-4.2.2.so
-#system/lib/libbt-fmrds.so
 system/vendor/lib/libbt-vendor.so
 
 # Camera
@@ -382,7 +361,7 @@ system/lib/libarcsoftHDR_3DNR.so
 system/lib/libArcsoft3DNR.so
 system/lib/libintelmetadatabuffer.so
 system/lib/libxditk_AT.so
-#system/lib/libxditk_DIT_CloverTrailPlus.so
+
 #system/lib/libxditk_isp.bin
 system/lib/ditCL.bin
 system/lib/DIT_AT_FRONT_PRE.cfg
@@ -399,6 +378,7 @@ system/lib/DIT_AT_BACK_NORMAL_219.cfg.fac
 system/lib/DIT_AT_BACK_NORMAL.cfg
 system/etc/camera_profiles_a500cg.xml
 system/etc/media_profiles.xml
+
 # Medfield Penwell Image Signal Processor
 system/etc/firmware/isp_acc_deghosting_css15.bin
 system/etc/firmware/isp_acc_fusion_css15.bin
@@ -443,17 +423,7 @@ system/lib/libcamera_client.so
 system/lib/libcamera_defocus.so
 system/lib/libcamera_metadata.so
 system/lib/libcamera_pano.so
-#system/lib/libarcsoft_panorama_burstcapture.so
-#system/lib/libarcsoft_sensorndk.so
-#system/lib/libjni_face_effect.so
-#system/lib/libsarcsoft_gallery.so
-#system/etc/gallery_arcsoft_config.dat
-#system/lib/libjni_face_detection.so
-#system/lib/libjni_picbest_static.so
-#system/lib/libsarcsoftface.so
 
-#system/etc/gpsconfig_HULA.xml
-#system/etc/gpsconfig_NoHULA.xml
 system/etc/icesoundpresets_a500cg.def
 system/etc/thermal_sensor_config_a500cg.xml
 system/etc/thermal_sensor_config.xml
@@ -461,7 +431,6 @@ system/etc/thermal_throttle_config_a500cg.xml
 system/etc/thermal_throttle_config.xml
 
 # intel video
-# system/lib/libstagefright.so
 system/etc/firmware/topazsc_fw.bin
 system/etc/firmware/msvdx_fw_mfld_DE2.0.bin
 
@@ -505,8 +474,6 @@ system/lib/libstagefright_omx.so
 system/lib/libasfparser.so
 
 # WiFi
-#system/bin/iw
-#system/bin/wlan_prov
 system/etc/firmware/fw_bcmdhd_43362_apsta.bin
 system/etc/firmware/fw_bcmdhd_43362.bin
 system/etc/wifi/bcmdhd_a500cg.cal
@@ -516,7 +483,6 @@ system/etc/wifi/TQS.ini
 system/etc/wifi/wpa_supplicant.conf
 system/etc/wifi/wpa_supplicant_overlay.conf
 system/bin/wpa_supplicant
-# system/lib/libcsmbinder.so
 
 # WiDi
 system/bin/mediaserver
@@ -586,23 +552,11 @@ system/etc/firmware/mp3_dec_1.bin
 system/etc/firmware/fw_sst_08e7.bin
 system/etc/asound.conf
 system/etc/asound-vv.conf
-#system/lib/libasound.so
 system/lib/audio.routemanager.so
 system/lib/libaudience-manager.so
-#system/lib/libaudiohalutils.so
 system/lib/libaudioresample.so
 system/lib/libinterface-provider-lib.so
 system/lib/libinterface-provider.so
-#system/lib/hw/audio.codec_offload.redhookbay.so
-#system/lib/hw/audio.hdmi.redhookbay.so
-#system/lib/hw/audio.hs_usb.redhookbay.so
-#system/lib/hw/audio_policy.redhookbay.so
-#system/lib/hw/audio.primary.redhookbay.so
-# maxx effect
-# system/lib/libmaxxaudio_jni.so
-# system/lib/libosl-maxxaudio-itf.so
-# system/lib/soundfx/libmaxxeffect-cembedded.so
-# system/vendor/etc/audio_effects.conf
 system/etc/audio_policy.conf
 
 # Touch screen
@@ -613,19 +567,13 @@ system/etc/firmware/s3202_ogs.img
 system/bin/parameter
 system/lib/libparameter.so
 system/etc/parameter-framework/ParameterFrameworkConfiguration_a500cg.xml
-#system/etc/parameter-framework/Settings
-#system/etc/parameter-framework/Settings/Audio
 system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains_a502cg.xml
 system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains_a600cg.xml
 system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains_a500cg.xml
-#system/etc/parameter-framework/Settings/Vibrator
 system/etc/parameter-framework/Settings/Vibrator/VibratorConfigurableDomains.xml
-#system/etc/parameter-framework/Settings/Route
 system/etc/parameter-framework/Settings/Route/RouteConfigurableDomains.xml
 system/etc/parameter-framework/ParameterFrameworkConfiguration_a600cg.xml
 system/etc/parameter-framework/ParameterFrameworkConfigurationVibrator.xml
-#system/etc/parameter-framework/Structure
-#system/etc/parameter-framework/Structure/Audio
 system/etc/parameter-framework/Structure/Audio/IMCSubsystem.xml
 system/etc/parameter-framework/Structure/Audio/Realtek_RT5647.xml
 system/etc/parameter-framework/Structure/Audio/LPESubsystem.xml
@@ -634,11 +582,9 @@ system/etc/parameter-framework/Structure/Audio/ConfigurationSubsystem.xml
 system/etc/parameter-framework/Structure/Audio/AudioClass.xml
 system/etc/parameter-framework/Structure/Audio/LPEMixerSubsystem.xml
 system/etc/parameter-framework/Structure/Audio/SysfsPmdownTimeSubsystem.xml
-#system/etc/parameter-framework/Structure/Vibrator
 system/etc/parameter-framework/Structure/Vibrator/MiscConfigurationSubsystem.xml
 system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorSubsystem.xml
 system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorClass.xml
-#system/etc/parameter-framework/Structure/Route
 system/etc/parameter-framework/Structure/Route/RouteClass.xml
 system/etc/parameter-framework/Structure/Route/RouteSubsystem.xml
 system/etc/parameter-framework/Structure/Route/RouteSubsystem-RoutesTypes.xml
@@ -650,11 +596,8 @@ system/lib/parameter-framework-plugins/Audio/libtinyalsa-subsystem.so
 system/lib/parameter-framework-plugins/Audio/liblpe-subsystem.so
 system/lib/parameter-framework-plugins/Audio/libaudience-subsystem.so
 system/lib/parameter-framework-plugins/Audio/libimc-subsystem.so
-#system/lib/parameter-framework-plugins/System
 system/lib/parameter-framework-plugins/System/libproperty-subsystem.so
-#system/lib/parameter-framework-plugins/Fs
 system/lib/parameter-framework-plugins/Fs/libfs-subsystem.so
-#system/lib/parameter-framework-plugins/Route
 system/lib/parameter-framework-plugins/Route/libroute-subsystem.so
 
 # vendor/intel/hardware/PRIVATE/chaabi
@@ -753,8 +696,6 @@ system/etc/telephony/XMM7260_CONF_8.xml
 system/lib/libxditk_DIT_Manager.so
 system/lib/libxditk_DIT_CloverTrailPlus.so
 
-#system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so
-#system/lib/ditlib_a600cg/libxditk_DIT_Manager.so
 
 # add extra hardware module we see that this is triger to start
 system/lib/hw/audio.codec_offload.redhookbay.so
@@ -763,14 +704,12 @@ system/lib/hw/audio.hs_usb.redhookbay.so
 system/lib/hw/audio.primary.redhookbay.so
 system/lib/hw/lights.redhookbay.so
 
-
 system/lib/libmamgr-xmm.so
 system/lib/libmodem-audio-collection.so
 system/lib/libxditk_AT.so
 system/lib/libxditk_ISP.so
 
 system/lib/DataSet/ditSCidGen/msgchk.db
-#system/lib/DataSet/ditSCidGen/libxditk_isp.bin
 
 # Vendor additional
 
@@ -801,9 +740,9 @@ system/vendor/lib/libWVStreamControlAPI_L1.so
 /system/etc/catalog/DSDS_A500CG/platform/init.props
 /system/etc/catalog/DSDS_A500CG/telephony_config/init.props
 /system/etc/media_codecs.xml
+
 # sound
 system/etc/icesoundpresets.def
 system/etc/icesoundpresets_a500cg.def
-system/etc/icesoundpresets_a600cg.def
 
 system/etc/route_criteria.conf
