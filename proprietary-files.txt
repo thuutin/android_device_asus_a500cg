@@ -482,7 +482,7 @@ system/etc/wifi/p2p_supplicant.conf
 system/etc/wifi/TQS.ini
 system/etc/wifi/wpa_supplicant.conf
 system/etc/wifi/wpa_supplicant_overlay.conf
-system/bin/wpa_supplicant
+#system/bin/wpa_supplicant
 
 # WiDi
 system/bin/mediaserver
