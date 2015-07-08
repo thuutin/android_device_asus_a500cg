@@ -8,7 +8,7 @@ allow init mediaserver:process { setsched };
 
 allow mediaserver asec_apk_file:dir { add_name write};
 allow mediaserver asec_apk_file:file {open write};
-
+allow mediaserver camera_device:chr_file rw_file_perms;
 allow mediaserver factory_file:dir search;
 allow mediaserver system_server:unix_stream_socket {read write};
 allow mediaserver factory_file:file {open read getattr};
