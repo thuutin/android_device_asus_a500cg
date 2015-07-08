@@ -739,7 +739,7 @@ system/vendor/lib/libWVStreamControlAPI_L1.so
 # manully copy the /system/etc/catalog if you need
 /system/etc/catalog/DSDS_A500CG/platform/init.props
 /system/etc/catalog/DSDS_A500CG/telephony_config/init.props
-/system/etc/media_codecs.xml
+
 
 # sound
 system/etc/icesoundpresets.def
