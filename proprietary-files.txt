@@ -1,6 +1,6 @@
 # Compass
 system/bin/akmd09911
-
+/system/etc/dhcpcd/dhcpcd.conf
 # Vibrator
 system/bin/vibrator
 

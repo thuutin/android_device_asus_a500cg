@@ -6,3 +6,5 @@ allow init self:capability sys_module;
 allow init bcu_cpufreqrel_exec:file execute_no_trans;
 type bcu_cpufreqrel, domain;
 init_daemon_domain(bcu_cpufreqrel);
+allow init system_file:file {write setattr link create rename unlink};
+allow init system_file:dir {write add_name remove_name };

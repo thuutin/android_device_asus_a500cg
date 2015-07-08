@@ -29,7 +29,7 @@ BUILD_ARM_FOR_X86 := true
 # Atom optimizations to improve memory benchmarks.
 -include $(LOCAL_PATH)/OptAtom.mk
 
-TARGET_RECOVERY_FSTAB := device/asus/a500cg/fstab.redhookbay
+TARGET_RECOVERY_FSTAB := device/asus/a500cg/ramdisk/fstab.redhookbay
 
 TARGET_BOARD_PLATFORM := clovertrail
 TARGET_BOOTLOADER_BOARD_NAME := clovertrail

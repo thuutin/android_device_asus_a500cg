@@ -8,3 +8,9 @@
 
 /dev/block/by-name/boot 	/boot       emmc    defaults       defaults
 /dev/block/by-name/recovery       /recovery        emmc    defaults             defaults
+*/block/mmcblk1*          	auto    	vfat	None	wait,voldmanaged=MicroSD:auto,noemulatedsd                    
+*/block/sda*              	auto    	vfat	None	wait,voldmanaged=USBdisk1:auto                                
+*/block/sdb*              	auto    	vfat	None	wait,voldmanaged=USBdisk2:auto                                
+*/block/sdc*              	auto    	vfat	None	wait,voldmanaged=USBdisk3:auto                                
+*/block/sde*              	auto    	vfat	None	wait,voldmanaged=USBdisk5:auto
+*/block/sdd*              	auto    	vfat	None	wait,voldmanaged=USBdisk4:auto                                
