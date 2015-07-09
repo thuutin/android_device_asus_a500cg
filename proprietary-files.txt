@@ -22,7 +22,7 @@ system/bin/tinymix
 system/bin/tinyplay
 # IPv6
 # system/bin/rdnssd
-# ASUS blob
+# ASUS blobmed
 system/bin/mkexfat
 system/bin/mkntfs
 system/bin/ntfsck
@@ -740,6 +740,9 @@ system/vendor/lib/libWVStreamControlAPI_L1.so
 # manully copy the /system/etc/catalog if you need
 /system/etc/catalog/DSDS_A500CG/platform/init.props
 /system/etc/catalog/DSDS_A500CG/telephony_config/init.props
+
+# Baidu
+/system/lib/libBaiduMapSDK_v2_4_1.so
 
 
 # sound
