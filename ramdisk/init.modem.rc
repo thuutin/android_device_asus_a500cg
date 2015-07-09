@@ -80,13 +80,13 @@ service ril-daemon2 /system/bin/rild -l /system/lib/librapid-ril-core.so -c 2
     group radio cache inet misc audio
     disabled
 
-service ril-daemon /system/bin/rild \
-    -l /system/lib/libxgold-ril.so -- -d /dev/ttyGSM1
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
-    user root
-    group system dhcp radio cache inet misc
-    oneshot
+#service ril-daemon /system/bin/rild \
+#    -l /system/lib/libxgold-ril.so -- -d /dev/ttyGSM1
+#    socket rild stream 660 root radio
+#    socket rild-debug stream 660 radio system
+#    user root
+#    group system dhcp radio cache inet misc
+#    oneshot
 
 # MTS SERVICES
 

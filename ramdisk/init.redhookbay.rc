@@ -5,7 +5,7 @@ import init.diag.rc
 import init.avc.rc
 import init.wireless.rc
 import init.modem.rc
-import init.config_init.rc
+#import init.config_init.rc
 import init.wifi.rc
 #import init.widi.rc
 import init.a500cg.usb.rc

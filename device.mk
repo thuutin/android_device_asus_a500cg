@@ -19,10 +19,6 @@ LOCAL_PATH := device/asus/a500cg
 
 $(call inherit-product, device/asus/a500cg/intel-boot-tools/Android.mk)
 
-#$(call inherit-product-if-exists, vendor/intel/hardware/apache-harmony/Android.mk)
-
-#$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -35,7 +31,6 @@ endif
 # currently contain all of the bitmaps at xhdpi density so
 # we do this little trick to fall back to the hdpi version
 # if the xhdpi doesn't exist.
-PRODUCT_LOCALES += xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
@@ -44,8 +39,6 @@ DEVICE_BASE_BOOT_IMAGE := $(LOCAL_PATH)/blobs/boot.img
 DEVICE_BASE_RECOVERY_IMAGE := $(LOCAL_PATH)/blobs/recovery-ww-2.20.40.13.img
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/intel-boot-tools/boot.mk
 CUSTOM_SUPERUSER = Superuser
-
-# Set default USB interface
 
 # specific management of audio_policy.conf
 PRODUCT_COPY_FILES += \
@@ -161,24 +154,38 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.aosp.rc:root/init.aosp.rc
 
+# Wifi
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Audio
 PRODUCT_PACKAGES += \
-    Launcher3 \
     libtinycompress \
     libtinyalsa \
     audio.a2dp.default \
     audio.primary.default \
     audio.r_submix.default \
     audio.usb.default \
-    libaudioutils 
+    libaudioutils
 
-
-# Modules (currently from ASUS libs)
-#ROOT_LIBS := $(wildcard $(LOCAL_PATH)/ramdisk/lib/*.*)
-#PRODUCT_COPY_FILES += \
-#$(foreach i, $(ROOT_LIBS), $(i):/root/lib/$(notdir $(i)))
-
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    libwrs_omxil_core_pvwrapped \
+    libOMXVideoDecoderAVC \
+    libOMXVideoDecoderH263 \
+    libOMXVideoDecoderMPEG4 \
+    libOMXVideoDecoderWMV \
+    libOMXVideoEncoderAVC \
+    libOMXVideoEncoderH263 \
+    libOMXVideoEncoderMPEG4 \
+    libmixvbp \
+    libmixvbp_h264 \
+    libmixvbp_mpeg4 \
+    libmixvbp_vc1
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -264,6 +271,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.adb.secure=0 
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.dalvik.vm.isa.arm=x86 \
+    ro.enable.native.bridge.exec=1
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-#$(call inherit-product, hardware/libhardware/modules/soundtrigger/Android.mk)

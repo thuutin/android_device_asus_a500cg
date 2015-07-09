@@ -1,6 +1,6 @@
 # Compass
 system/bin/akmd09911
-/system/etc/dhcpcd/dhcpcd.conf
+#system/etc/dhcpcd/dhcpcd.conf
 # Vibrator
 system/bin/vibrator
 
@@ -333,7 +333,8 @@ system/lib/libtcs.so
 system/bin/gpsd
 system/bin/gpslogd
 system/etc/gps.conf
-system/etc/gpsconfig.xml
+system/etc/gpsconfig_NoHULA.xml
+system/etc/gpsconfig_HULA.xml
 system/etc/libgps.conf
 
 # BT
