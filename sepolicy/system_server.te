@@ -16,4 +16,5 @@ allow system_server init:unix_dgram_socket sendto;
 allow system_server surfaceflinger_tmpfs:file { read write };
 
 allow system_server default_android_service:service_manager {add};
+allow system_server fuse:dir {search read write};
 

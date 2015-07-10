@@ -580,11 +580,11 @@ service drm /system/bin/drmserver
     user drm
     group drm system inet drmrpc
 
-service media /system/bin/mediaserver
-    class main
-    user media
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
-    ioprio rt 4
+#service media /system/bin/mediaserver
+#    class main
+#    user media
+#    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
+#    ioprio rt 4
 
 # One shot invocation to deal with encrypted volume.
 service defaultcrypto /system/bin/vdc --wait cryptfs mountdefaultencrypted
@@ -611,10 +611,10 @@ service installd /system/bin/installd
     class main
     socket installd stream 600 system system
 
-service flash_recovery /system/bin/install-recovery.sh
-    class main
-    seclabel u:r:install_recovery:s0
-    oneshot
+#service flash_recovery /system/bin/install-recovery.sh
+#    class main
+#    seclabel u:r:install_recovery:s0
+#    oneshot
 
 service racoon /system/bin/racoon
     class main
@@ -632,10 +632,10 @@ service mtpd /system/bin/mtpd
     disabled
     oneshot
 
-service keystore /system/bin/keystore /data/misc/keystore
-    class main
-    user keystore
-    group keystore drmrpc
+#service keystore /system/bin/keystore /data/misc/keystore
+#    class main
+#    user keystore
+#    group keystore drmrpc
 
 service dumpstate /system/bin/dumpstate -s
     class main

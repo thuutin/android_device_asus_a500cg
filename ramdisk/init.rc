@@ -26,7 +26,7 @@ service keystore /system/bin/keystore /data/misc/keystore
     user keystore
     group keystore drmrpc system
 
-service flash_recovery /system/bin/install-recovery.sh
-    class main
-    seclabel u:r:install_recovery:s0
-    oneshot
+#service flash_recovery /system/bin/install-recovery.sh
+#    class main
+#    seclabel u:r:install_recovery:s0
+#    oneshot
