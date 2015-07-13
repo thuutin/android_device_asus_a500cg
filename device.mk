@@ -253,7 +253,8 @@ PRODUCT_PACKAGES += \
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
-
+# This will build the plugins/libart-extension.so library
+PRODUCT_PACKAGES += libart-extension
 ############################### property ##########################
 
 
