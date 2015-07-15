@@ -253,6 +253,10 @@ PRODUCT_PACKAGES += \
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
+#ituxd for thermal management
+ENABLE_ITUXD := true
+PRODUCT_PACKAGES += \
+        ituxd
 
 ############################### property ##########################
 
