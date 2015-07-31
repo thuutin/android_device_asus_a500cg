@@ -37,9 +37,6 @@ BUILD_EMULATOR := false
 # enable ARM codegen for x86 with Houdini
 BUILD_ARM_FOR_X86 := true
 
-# Atom optimizations to improve memory benchmarks.
-#-include $(LOCAL_PATH)/OptAtom.mk
-
 TARGET_RECOVERY_FSTAB := device/asus/a500cg/ramdisk/fstab.redhookbay
 
 TARGET_BOARD_PLATFORM := clovertrail
@@ -120,8 +117,6 @@ WIFI_DRIVER_MODULE_ARG := "iface_name=wlan0 firmware_path=/system/etc/firmware/f
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-# Include an expanded selection of fonts
-#EXTENDED_FONT_FOOTPRINT := true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote32
 
@@ -167,7 +162,7 @@ BOARD_USES_LEGACY_MMAP := true
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.sf.lcd_density=320 \
-    ro.opengles.version = 196608 \
+    ro.opengles.version=196608 \
     gsm.net.interface=rmnet0 \
     persist.system.at-proxy.mode=0 \
     ro.dalvik.vm.native.bridge=libhoudini.so \
@@ -176,8 +171,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     dalvik.vm.image-dex2oat-Xms=64m \
     dalvik.vm.image-dex2oat-Xmx=64m
 
-
-# File system
 # Storage information
 BOARD_HAS_LARGE_FILESYSTEM := true
 
@@ -186,17 +179,34 @@ TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/ramdisk/init.recovery.redhookbay.rc
 BOARD_RECOVERY_SWIPE := true
 BOARD_UMS_LUNFILE := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file"
 
-# TWR
-# Recovery options TWRP
-TWHAVE_SELINUX := true
-RECOVERY_SDCARD_ON_DATA := false
-BOARD_HAS_NO_REAL_SDCARD := false
-TW_NO_BATT_PERCENT := false
-TW_NO_USB_STORAGE := true
-DEVICE_RESOLUTION := 720x1280
-TW_INCLUDE_CRYPTO := true
+# TWRP Recovery
+# update your twrp.fstab to recovery dir /etc/twrp.fstab
+TW_NO_LEGACY_PROPS := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_DISABLE_DOUBLE_BUFFERING_CHECK := true
+TW_THEME := portrait_hdpi
+
+TW_BRIGHTNESS_PATH := /sys/class/backlight/psb-bl/brightness
+BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+TW_INCLUDE_CRYPTO := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_INTERNAL_STORAGE_PATH := "/media/data/0"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "/data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_HAS_MTP := true
+TW_NO_SCREEN_BLANK := true
+TW_NO_SCREEN_TIMEOUT := true
+TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/max170xx_battery
+TW_BRIGHTNESS_PATH := /sys/class/backlight/psb-bl/brightness
+TW_MAX_BRIGHTNESS := 255
+TW_CUSTOM_POWER_BUTTON := 116
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone0/temp"
+TWRP_EVENT_LOGGING := false
+
 
 
 # SELinux
