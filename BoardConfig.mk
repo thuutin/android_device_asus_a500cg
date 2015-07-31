@@ -1,23 +1,33 @@
 include $(GENERIC_X86_CONFIG_MK)
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 LOCAL_PATH := device/asus/a500cg
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+
 BOARD_CREATE_MODPROBE_SYMLINK := true
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-
+#TARGET_NO_RECOVERY := true
 TARGET_ARCH := x86
 TARGET_ARCH_VARIANT := x86-atom
 TARGET_CPU_ABI := x86
+TARGET_CPU_VARIANT := x86
 TARGET_CPU_ABI2 := armeabi-v7a
 TARGET_CPU_ABI_LIST := x86,armeabi-v7a,armeabi
 TARGET_CPU_ABI_LIST_32_BIT := x86,armeabi-v7a,armeabi
 TARGET_CPU_SMP := true
+#SIM_COUNT := 2
+#ANDROID_MULTI_SIM := true
+#TARGET_RIL_DISABLE_STATUS_POLLING := true
 TARGET_RELEASETOOLS_EXTENSIONS := device/asus/a500cg/releasetools
+TARGET_BOARD_KERNEL_HEADERS := device/asus/a500cg/kernel-headers 
 
 INTEL_INGREDIENTS_VERSIONS := true
 LOCAL_CFLAGS += -DARCH_IA32
 TARGET_PRELINK_MODULE := false
+
+#add some intel BOOTCLASSPATH
+#PRODUCT_BOOT_JARS += com.intel.config com.intel.multidisplay
+PRODUCT_BOOT_JARS += com.intel.multidisplay
 
 # skip some proccess to speed up build
 BOARD_SKIP_ANDROID_DOC_BUILD := true
@@ -27,7 +37,7 @@ BUILD_EMULATOR := false
 BUILD_ARM_FOR_X86 := true
 
 # Atom optimizations to improve memory benchmarks.
--include $(LOCAL_PATH)/OptAtom.mk
+#-include $(LOCAL_PATH)/OptAtom.mk
 
 TARGET_RECOVERY_FSTAB := device/asus/a500cg/ramdisk/fstab.redhookbay
 
@@ -49,13 +59,20 @@ BOARD_MALLOC_ALIGNMENT := 16
 PRODUCT_LIBRARY_PATH := $(PRODUCT_LIBRARY_PATH):/system/lib/arm
 
 # Kernel Build from source inline
-# TARGET_KERNEL_CROSS_COMPILE_PREFIX := x86_64-linux-android-
-# TARGET_KERNEL_CONFIG := a500cg_defconfig
-# TARGET_KERNEL_SOURCE := kernel/asus/a500cg
-# TARGET_KERNEL_ARCH := x86_64
+#TARGET_PROVIDES_INIT_RC := true
+#MINIGZIP := out/host/darwin-x86/bin/minigzip
+#openssl: out/host/darwin-x86/bin/openssl
+#KERNEL_DIFFCONFIG := $(LOCAL_PATH)/a500cg_defconfig
+
+#$(info KERNEL_DIFFCONFIG ${KERNEL_DIFFCONFIG} )
+
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := x86_64-linux-android-
+#TARGET_KERNEL_CONFIG := a500cg_defconfig
+#TARGET_KERNEL_SOURCE := linux/kernel
+#KERNEL_SRC_DIR ?= linux/kernel
 # BOARD_CUSTOM_BOOTIMG_MK := device/asus/a500cg/intel-boot-tools/boot.mk
 # DEVICE_BASE_BOOT_IMAGE := device/asus/a500cg/blobs/boot.img
-# BOARD_KERNEL_IMAGE_NAME := bzImage
+#BOARD_KERNEL_IMAGE_NAME := bzImage
 # TARGET_PREBUILT_KERNEL := out/target/product/a500cg/obj/KERNEL_OBJ/arch/x86/boot/bzImage
 # DEVICE_BASE_RECOVERY_IMAGE := device/asus/a500cg/blobs/recovery-WW-3.23.40.52.img
 
@@ -64,6 +81,7 @@ BOARD_CUSTOM_BOOTIMG_MK := device/asus/a500cg/intel-boot-tools/boot.mk
 TARGET_PREBUILT_KERNEL := device/asus/a500cg/blobs/bzImage
 DEVICE_BASE_BOOT_IMAGE := device/asus/a500cg/blobs/boot.img
 DEVICE_BASE_RECOVERY_IMAGE := device/asus/a500cg/blobs/recovery-WW-3.23.40.52.img
+TARGET_PREBUILT_RECOVERY_KERNEL := device/asus/a500cg/blobs/bzImage 
 
 # Kernel config (reference only)
 BOARD_KERNEL_BASE := 0x10000000
@@ -77,12 +95,13 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
+#WITH_DEXPREOPT := true
 # Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-endif
+#ifeq ($(TARGET_BUILD_VARIANT),user)
+#    ifeq ($(WITH_DEXPREOPT),)
+#      WITH_DEXPREOPT := true
+#    endif
+#endif
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
@@ -101,7 +120,7 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
+#EXTENDED_FONT_FOOTPRINT := true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote32
 
@@ -118,13 +137,11 @@ BOARD_HAVE_NFC := false
 TARGET_USES_64_BIT_BINDER := true
 
 # Audio
-BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_TINY_ALSA_AUDIO := true
 
 # DRM Protected Video
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 1
 USE_INTEL_SECURE_AVC := true
-
 
 # enable ARM codegen for x86 with Houdini
 BUILD_ARM_FOR_X86 := true
@@ -164,12 +181,17 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Recovery global
-TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/ramdisk/recovery.init.redhookbay.rc
+TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/ramdisk/init.recovery.redhookbay.rc
 BOARD_RECOVERY_SWIPE := true
 BOARD_UMS_LUNFILE := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file"
 
 # TWR
 # Recovery options TWRP
+TWHAVE_SELINUX := true
+RECOVERY_SDCARD_ON_DATA := false
+BOARD_HAS_NO_REAL_SDCARD := false
+TW_NO_BATT_PERCENT := false
+TW_NO_USB_STORAGE := true
 DEVICE_RESOLUTION := 720x1280
 TW_INCLUDE_CRYPTO := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
@@ -205,7 +227,7 @@ BOARD_SEPOLICY_UNION += \
     service.te \
     mmgr.te \
     init.te \
-    kernel.te \
+   kernel.te \
     sysfs_uart_power_ctrl.te \
     ueventd.te \
     logcat.te \
@@ -220,14 +242,16 @@ BOARD_SEPOLICY_UNION += \
 # Build From source
 USE_INTEL_MDP := true
 BUILD_WITH_FULL_STAGEFRIGHT := true
+BOARD_USES_MRST_OMX := true
 BOARD_USES_WRS_OMXIL_CORE := true
 BOARD_USE_LIBVA_INTEL_DRIVER := true
 BOARD_USE_LIBVA := true
 BOARD_USE_LIBMIX := true
-#INTEL_VA := true
-
+INTEL_VA := true
+ENABLE_IMG_GRAPHICS := true
 # Enable Minikin text layout engine (will be the default soon)
-USE_MINIKIN := true
-
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
+#USE_MINIKIN := true
+USE_MDS_LEGACY := true
+TARGET_HAS_MULTIPLE_DISPLAY := true
+#TARGET_HAS_ISV := true
+#USE_HW_VP8 := true

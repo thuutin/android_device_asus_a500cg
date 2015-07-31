@@ -11,15 +11,15 @@ system/bin/vold
 system/bin/droidboot
 system/bin/msvdx_bin
 system/bin/topaz_bin
-system/bin/customize_service
+#system/bin/customize_service
 
 system/bin/dpstmgr
 system/lib/libdm_dpst.so
 
 # extra audio
-system/bin/tinycap
-system/bin/tinymix
-system/bin/tinyplay
+#system/bin/tinycap
+#system/bin/tinymix
+#system/bin/tinyplay
 # IPv6
 # system/bin/rdnssd
 # ASUS blobmed
@@ -51,7 +51,7 @@ system/etc/thermal_throttle_config_a500cg.xml
 # system/etc/permissions
 system/etc/permissions/com.intel.camera.extensions.xml
 system/etc/permissions/com.intel.config.xml
-system/etc/permissions/com.intel.multidisplay.xml
+#system/etc/permissions/com.intel.multidisplay.xml
 system/etc/permissions/com.intel.security.lib.sepdrmjni.xml
 system/etc/permissions/com.intel.security.service.sepmanager.xml
 system/etc/permissions/com.intel.widi.sink.xml
@@ -59,7 +59,7 @@ system/etc/permissions/com.intel.widi.sink.xml
 # system/framework
 system/framework/com.intel.camera.extensions.jar
 system/framework/com.intel.config.jar
-system/framework/com.intel.multidisplay.jar
+#system/framework/com.intel.multidisplay.jar
 system/framework/com.intel.security.lib.sepdrmjni.jar
 system/framework/com.intel.security.service.sepmanager.jar
 system/framework/com.intel.widi.sink.jar
@@ -67,11 +67,11 @@ system/framework/com.intel.widi.sink.jar
 # system/lib
 # Intel dalvik
 # hwcomposer / pvr / stagefright / mediaplayerservice
-system/lib/libmultidisplayjni.so
-system/lib/libmultidisplay.so
+#system/lib/libmultidisplayjni.so
+#system/lib/libmultidisplay.so
 
 # platform/hardware/intel/common/libwsbm
-system/lib/libwsbm.so
+#system/lib/libwsbm.so
 
 # for audio and vibrator
 system/lib/libmmgrcli.so
@@ -79,8 +79,8 @@ system/lib/libmmgr_cnx.so
 system/lib/libmmgr_utils.so
 system/lib/libevent-listener.so
 system/lib/libproperty.so
-system/lib/libinput.so
-
+#system/lib/libinput.so
+#system/bin/rild
 # hardware/intel/PREBUILT/libsharedbuffer (libvideoeditor_cor.so)
 system/lib/libsharedbuffer.so
 
@@ -289,6 +289,7 @@ system/usr/keychars/synaptics_dsx.kcm
 system/usr/share/alsa/alsa.conf
 
 # Intel blobs
+
 system/lib/libclcore.bc    
 system/lib/libclcore_debug.bc
 system/lib/libclcore_x86.bc
@@ -314,6 +315,8 @@ system/bin/activate_trace_modem
 system/bin/configure_trace_modem
 system/bin/mmgr
 system/bin/mts
+#system/bin/pti_sigusr1
+#system/bin/atproxy_usbreset
 system/bin/proxy
 system/bin/nvm_server
 system/etc/telephony/mmgr_6360_conf_1.xml
@@ -331,7 +334,7 @@ system/lib/libtcs.so
 
 # GPS
 system/bin/gpsd
-system/bin/gpslogd
+#system/bin/gpslogd
 system/etc/gps.conf
 system/etc/gpsconfig_NoHULA.xml
 system/etc/gpsconfig_HULA.xml
@@ -437,42 +440,43 @@ system/etc/firmware/topazsc_fw.bin
 system/etc/firmware/msvdx_fw_mfld_DE2.0.bin
 
 # hardware/intel/libva
-system/lib/libva-android.so
-system/lib/libva-tpi.so
-system/lib/libva.so
+#system/lib/libva-android.so
+#system/lib/libva-tpi.so
+#system/lib/libva.so
 
 # hardware/intel/common/omx-components
 system/etc/wrs_omxil_components.list
-system/lib/libwrs_omxil_common.so
-system/lib/libwrs_omxil_core_pvwrapped.so
-system/lib/libOMXVideoDecoderAVCSecure.so
-system/lib/libOMXVideoDecoderAVC.so
-system/lib/libOMXVideoDecoderH263.so
-system/lib/libOMXVideoDecoderMPEG4.so
-system/lib/libOMXVideoDecoderWMV.so
-system/lib/libOMXVideoEncoderAVC.so
-system/lib/libOMXVideoEncoderH263.so
-system/lib/libOMXVideoEncoderMPEG4.so
+#system/lib/libwrs_omxil_common.so
+#system/lib/libwrs_omxil_core_pvwrapped.so
+#system/lib/libOMXVideoDecoderAVCSecure.so
+#system/lib/libOMXVideoDecoderAVC.so
+#system/lib/libOMXVideoDecoderH263.so
+#system/lib/libOMXVideoDecoderMPEG4.so
+#system/lib/libOMXVideoDecoderWMV.so
+#system/lib/libOMXVideoEncoderAVC.so
+#system/lib/libOMXVideoEncoderH263.so
+#system/lib/libOMXVideoEncoderMPEG4.so
 
 # vendor/intel/PRIVATE/media_codecs
-system/lib/libstagefright_soft_alacdec.so
-system/lib/libstagefright_soft_aacdec_mdp.so
-system/lib/libstagefright_soft_mp3dec_mdp.so
+#system/lib/libstagefright_soft_alacdec.so
+#system/lib/libstagefright_soft_aacdec_mdp.so
+#system/lib/libstagefright_soft_mp3dec_mdp.so
 
 # vendor/intel/hardware/PRIVATE/libmix
 system/lib/libmix_imageencoder.so
-system/lib/libmixvbp_h264.so
-system/lib/libmixvbp_mpeg4.so
-system/lib/libmixvbp_vc1.so
-system/lib/libmixvbp.so
-system/lib/libva_videodecoder.so
-system/lib/libva_videoencoder.so
+system/lib/libmix_imagedecoder.so
+#system/lib/libmixvbp_h264.so
+#system/lib/libmixvbp_mpeg4.so
+#system/lib/libmixvbp_vc1.so
+#system/lib/libmixvbp.so
+#system/lib/libva_videodecoder.so
+#system/lib/libva_videoencoder.so
 
 # vendor/intel/hardware/PRIVATE/libstagefrighthw
-system/lib/libstagefrighthw.so
+#system/lib/libstagefrighthw.so
 #system/lib/libstagefright_hdcp.so
 system/lib/libstagefright_usbd.so
-system/lib/libstagefright_omx.so
+#system/lib/libstagefright_omx.so
 system/lib/libasfparser.so
 
 # WiFi
@@ -487,7 +491,7 @@ system/etc/wifi/wpa_supplicant_overlay.conf
 #system/bin/wpa_supplicant
 
 # WiDi
-system/bin/mediaserver
+#system/bin/mediaserver
 system/etc/widi/widi.conf
 system/lib/libhwcwidi.so
 #system/lib/libwidiclient.so
@@ -611,7 +615,7 @@ system/lib/libsepdrmjni.so
 system/lib/libsepdrm.so
 system/lib/libsepipt.so
 system/lib/libkeymaster.so
-system/lib/libdrm.so
+#system/lib/libdrm.so
 
 system/etc/security/EPID_certs/EPIDClientConfig.txt
 system/etc/security/EPID_certs/epid_paramcert.dat
@@ -744,7 +748,6 @@ system/vendor/lib/libWVStreamControlAPI_L1.so
 
 # Baidu
 /system/lib/libBaiduMapSDK_v2_4_1.so
-
 
 # sound
 system/etc/icesoundpresets.def

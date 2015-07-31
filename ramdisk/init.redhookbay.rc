@@ -1,11 +1,11 @@
-import init.superuser.rc
+#import init.superuser.rc
 import init.common.rc
 import init.debug.rc
 import init.diag.rc
 import init.avc.rc
 import init.wireless.rc
 import init.modem.rc
-#import init.config_init.rc
+import init.config_init.rc
 import init.wifi.rc
 #import init.widi.rc
 import init.a500cg.usb.rc
@@ -21,9 +21,6 @@ import init.logtool.rc
 on early-init
 #  Set boot_min_cap for boot to android
     setprop ro.boot.min.cap 0
-    setprop persist.ims_support 0
-    setprop persist.radio.multisim.config dsds
-    setprop ro.swconf.info DSDS_A500CG
 
 on init
     chmod 0770 /system/bin/upi_ug31xx

@@ -1,7 +1,11 @@
-#mount point   fstype    device
-/dev/block/by-name/system 	/system        ext4
-/dev/block/by-name/cache 	/cache         ext4
-/dev/block/by-name/boot		/boot          emmc
-/dev/block/by-name/recovery		/recovery      emmc
-/dev/block/by-name/data 	/data          ext4   
-/dev/block/by-name/misc		/misc          emmc
+/boot           osip        /dev/block/by-name/boot
+/recovery       osip        /dev/block/by-name/recovery
+/fastboot       osip        /dev/block/by-name/fastboot
+
+/cache		ext4		/dev/block/mmcblk0p6
+/system		ext4		/dev/block/mmcblk0p9
+/data		ext4		/dev/block/mmcblk0p10			flags=encryptable=/dev/block/mmcblk0p3/userdata_footer
+/factory	ext4		/dev/block/mmcblk0p3
+/config		ext4		/dev/block/mmcblk0p5
+/sdcard     	vfat    	/dev/block/mmcblk1p1    		flags=display="MicroSD";storage;wipeingui;removable
+/usb_otg        vfat     /dev/block/sda1	 /dev/block/sda       flags=display="USB-OTG";storage;wipeingui;removable

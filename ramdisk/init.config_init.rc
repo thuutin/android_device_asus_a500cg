@@ -1,3 +1,4 @@
 on fs
-    mkdir /local_cfg
-    symlink  /system/etc/catalog/DSDS_A500cg /local_cfg
+    setprop persist.ims_support 0
+    setprop persist.radio.multisim.config dsds
+    setprop ro.swconf.info DSDS_A500CG

@@ -2,3 +2,6 @@ type akmd, domain;
 type akmd_exec, exec_type, file_type;
 init_daemon_domain(akmd);
 allow akmd sensors_device:chr_file {open read write ioctl};
+allow akmd system_data_file:dir {write};
+allow akmd system_data_file:file {write};
+

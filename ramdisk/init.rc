@@ -9,7 +9,7 @@ tbo# Android default init.rc (system/core/rootdir/init.rc) should be untouched.
 # import Android default init.rc renamed init.aosp.rc
 # init.aosp.rc actually gets parsed after all the content of this file.
 import /init.aosp.rc
-
+import /init.cm.rc
 
 ### Services ###
 # Android init only keeps the first definition found for a service.
@@ -18,8 +18,9 @@ import /init.aosp.rc
 service media /system/bin/mediaserver
     class main
     user media
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm radio system
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm radio system qcom_diag
     ioprio rt 4
+
 
 service keystore /system/bin/keystore /data/misc/keystore
     class main

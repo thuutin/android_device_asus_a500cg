@@ -1,5 +1,5 @@
 allow rootfs rootfs:file setattr;
-allow init rootfs:file setattr;
+allow init rootfs:file { rename link setattr write create};
 allow init sensors_exec:file execute_no_trans;
 allow init mmgr_exec:file execute_no_trans;
 allow init self:capability {sys_admin sys_module};
@@ -10,3 +10,11 @@ type bcu_cpufreqrel, domain;
 init_daemon_domain(bcu_cpufreqrel);
 allow init system_file:file {write setattr link create rename unlink};
 allow init system_file:dir {write add_name remove_name };
+
+allow recovery selinuxfs:file {write};
+allow recovery kernel:security {setenforce};
+allow init display_service:service_manager {add};
+allow init hwc_service:service_manager {add};
+allow init surfaceflinger_service:service_manager {add};
+allow init unlabeled:file {execute execute_no_trans};
+

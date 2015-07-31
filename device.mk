@@ -38,7 +38,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 DEVICE_BASE_BOOT_IMAGE := $(LOCAL_PATH)/blobs/boot.img
 DEVICE_BASE_RECOVERY_IMAGE := $(LOCAL_PATH)/blobs/recovery-ww-2.20.40.13.img
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/intel-boot-tools/boot.mk
-CUSTOM_SUPERUSER = Superuser
+#CUSTOM_SUPERUSER = Superuser
 
 # specific management of audio_policy.conf
 PRODUCT_COPY_FILES += \
@@ -101,12 +101,13 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/sbin/adbd:root/sbin/adbd \
-    $(LOCAL_PATH)/ramdisk/sbin/pclinkd:root/sbin/pclinkd \
     $(LOCAL_PATH)/ramdisk/sbin/intel_prop:root/sbin/intel_prop \
     $(LOCAL_PATH)/ramdisk/sbin/thermald:root/sbin/thermald \
-    $(LOCAL_PATH)/ramdisk/sbin/healthd:root/sbin/healthd \
     $(LOCAL_PATH)/ramdisk/charger:root/charger
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/sbin/adbd:root/sbin/adbd \
+    $(LOCAL_PATH)/ramdisk/sbin/healthd:root/sbin/healthd
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/DSDS_A500CG/platform/init.props:root/local_cfg/platform/init.props \
@@ -114,7 +115,6 @@ PRODUCT_COPY_FILES += \
 
 # Binary to be replaced with source code ..
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/twrp.fstab:recovery/root/twrp.fstab \
     $(LOCAL_PATH)/ramdisk/sbin/healthd:recovery/root/sbin/healthd \
     $(LOCAL_PATH)/ramdisk/init.recovery.redhookbay.rc:root/init.recovery.redhookbay.rc 
 
@@ -151,7 +151,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.zram.rc:root/init.zram.rc \
     $(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.redhookbay.rc:root/ueventd.redhookbay.rc \
-    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.aosp.rc:root/init.aosp.rc
 
 # Wifi
@@ -159,8 +158,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
-    wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -174,6 +172,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libstagefrighthw \
+    libwrs_omxil_common \
     libwrs_omxil_core_pvwrapped \
     libOMXVideoDecoderAVC \
     libOMXVideoDecoderH263 \
@@ -182,10 +181,9 @@ PRODUCT_PACKAGES += \
     libOMXVideoEncoderAVC \
     libOMXVideoEncoderH263 \
     libOMXVideoEncoderMPEG4 \
-    libmixvbp \
-    libmixvbp_h264 \
-    libmixvbp_mpeg4 \
-    libmixvbp_vc1
+    libOMXVideoDecoderAVCSecure \
+    libwsbm \
+    libtinyalsa-subsystem
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -193,8 +191,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.xml \
-    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
@@ -223,7 +221,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     audio.usb.default \
-    audio.primary.default \
+    audio.primary.default
 
 
 # usb
@@ -249,6 +247,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     link_modprobe
+
+PRODUCT_PACKAGES += \
+    com.intel.multidisplay.xml \
+    com.intel.multidisplay
 
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
@@ -277,3 +279,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+#$(call inherit-product, hardware/intel/common/omx-components/Android.mk)
+
+#Additional Intel lib
+#PRODUCT_PACKAGES += \
+#   libkeymaster

@@ -15,11 +15,10 @@
 #
 
 # Get the long list of APNs
-#PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
 PRODUCT_NAME := full_a500cg
 PRODUCT_DEVICE := a500cg
@@ -28,6 +27,6 @@ PRODUCT_MODEL := ASUS_T00F
 PRODUCT_MANUFACTURER := asus
 
 
-$(call inherit-product, device/asus/a500cg/device.mk)
 $(call inherit-product-if-exists, vendor/asus/a500cg/a500cg-vendor.mk)
 $(call inherit-product-if-exists, vendor/google/gapps/gapps-vendor.mk)
+$(call inherit-product, device/asus/a500cg/device.mk)

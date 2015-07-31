@@ -53,3 +53,8 @@ service upi_ug31xx /upi_ug31xx
 # Reset the watchdog counter once boot is completed
 on property:init.svc.recovery=running
     write /sys/devices/virtual/misc/watchdog/counter "0"
+
+
+on fs
+    #mount_all ./fstab.redhookbay
+	

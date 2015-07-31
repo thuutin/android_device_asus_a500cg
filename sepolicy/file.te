@@ -27,3 +27,4 @@ type atproxy_usbreset_exec, exec_type;
 
 #type charge_exec, exec_type;
 
+#type logd_exec, exec_type;

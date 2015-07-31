@@ -1,3 +1,7 @@
-domain_auto_trans(init, su_exec, su);
+#domain_auto_trans(init, su_exec, su);
 allow shell su_exec:file {execute getattr};
 allow shell logcat_exec:file {execute read open execute_no_trans};
+
+#allow logd system_file:file {entrypoint};
+allow logd system_data_file:dir {write remove_name};
+allow logd system_data_file:file {rename};
