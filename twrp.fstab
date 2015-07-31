@@ -1,0 +1,14 @@
+/boot           osip        /dev/block/by-name/boot
+/recovery       osip        /dev/block/by-name/recovery
+/fastboot       osip        /dev/block/by-name/fastboot
+/ADF	        osip        /dev/block/by-name/ADF
+/APD			ext4		/dev/block/by-name/APD
+/cache			ext4		/dev/block/by-name/cache
+/factory		ext4		/dev/block/by-name/factory
+/log			ext4		/dev/block/by-name/logs
+/misc			emmc		/dev/block/by-name/misc length=0
+/data			ext4		/dev/block/by-name/data		flags=encryptable=/factory/userdata_footer
+/splashscreen	emmc		/dev/block/by-name/splashscreen	flags=display="Splashscreen"
+/system			ext4		/dev/block/by-name/system
+/external_sd	vfat		/dev/block/mmcblk1p1		flags=display="MicroSD";storage;wipeingui;removable
+/USB-OTG 		vfat 		/dev/block/sda1 /dev/block/sda flags=display="USB-OTG";storage;removable
