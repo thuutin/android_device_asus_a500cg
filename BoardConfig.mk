@@ -29,6 +29,7 @@ TARGET_PRELINK_MODULE := false
 #PRODUCT_BOOT_JARS += com.intel.config com.intel.multidisplay
 PRODUCT_BOOT_JARS += com.intel.multidisplay
 
+
 # skip some proccess to speed up build
 BOARD_SKIP_ANDROID_DOC_BUILD := true
 BUILD_EMULATOR := false

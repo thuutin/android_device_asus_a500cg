@@ -255,6 +255,10 @@ PRODUCT_PACKAGES += \
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
+#ituxd for thermal management
+ENABLE_ITUXD := true
+PRODUCT_PACKAGES += \
+        ituxd
 
 ############################### property ##########################
 
@@ -279,8 +283,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-#$(call inherit-product, hardware/intel/common/omx-components/Android.mk)
-
-#Additional Intel lib
-#PRODUCT_PACKAGES += \
-#   libkeymaster
