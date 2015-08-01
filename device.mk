@@ -260,6 +260,9 @@ ENABLE_ITUXD := true
 PRODUCT_PACKAGES += \
         ituxd
 
+# This will build the plugins/libart-extension.so library
+PRODUCT_PACKAGES += libart-extension
+
 ############################### property ##########################
 
 
