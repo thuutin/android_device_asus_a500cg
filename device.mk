@@ -16,7 +16,6 @@
 
 LOCAL_PATH := device/asus/a500cg
 
-
 $(call inherit-product, device/asus/a500cg/intel-boot-tools/Android.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
@@ -34,11 +33,9 @@ endif
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-
 DEVICE_BASE_BOOT_IMAGE := $(LOCAL_PATH)/blobs/boot.img
 DEVICE_BASE_RECOVERY_IMAGE := $(LOCAL_PATH)/blobs/recovery-ww-2.20.40.13.img
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/intel-boot-tools/boot.mk
-#CUSTOM_SUPERUSER = Superuser
 
 # specific management of audio_policy.conf
 PRODUCT_COPY_FILES += \
@@ -168,12 +165,20 @@ PRODUCT_PACKAGES += \
     audio.primary.default \
     audio.r_submix.default \
     audio.usb.default \
+    libtinyalsa-subsystem \
     libaudioutils
 
+# stagefright
 PRODUCT_PACKAGES += \
-    libstagefrighthw \
+    libstagefrighthw
+
+# omx common
+PRODUCT_PACKAGES += \
     libwrs_omxil_common \
-    libwrs_omxil_core_pvwrapped \
+    libwrs_omxil_core_pvwrapped
+
+# video decoder encoder
+PRODUCT_PACKAGES += \
     libOMXVideoDecoderAVC \
     libOMXVideoDecoderH263 \
     libOMXVideoDecoderMPEG4 \
@@ -181,9 +186,29 @@ PRODUCT_PACKAGES += \
     libOMXVideoEncoderAVC \
     libOMXVideoEncoderH263 \
     libOMXVideoEncoderMPEG4 \
-    libOMXVideoDecoderAVCSecure \
-    libwsbm \
-    libtinyalsa-subsystem
+    libOMXVideoDecoderAVCSecure
+    
+# libwsbm
+PRODUCT_PACKAGES += \
+    libwsbm
+
+# libmix
+PRODUCT_PACKAGES += \
+    libmixvbp \
+    libmixvbp_h264 \
+    libmixvbp_h264secure \
+    libmixvbp_mpeg4 \
+    libmixvbp_vc1
+
+# image decover
+PRODUCT_PACKAGES += \
+    libmix_imagedecoder \
+    libmix_imageencoder
+
+# Media SDK and OMX IL components
+PRODUCT_PACKAGES += \
+    msvdx_bin \
+    topaz_bin
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -223,7 +248,6 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.primary.default
 
-
 # usb
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
@@ -250,7 +274,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     com.intel.multidisplay.xml \
-    com.intel.multidisplay
+    com.intel.multidisplay \
+    libmultidisplay \
+    libmultidisplayjni \
 
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
@@ -263,17 +289,6 @@ PRODUCT_PACKAGES += \
 # This will build the plugins/libart-extension.so library
 PRODUCT_PACKAGES += libart-extension
 
-############################### property ##########################
-
-
-# Extended JNI checks
-# The extended JNI checks will cause the system to run more slowly, but they can spot a variety of nasty bugs
-# before they have a chance to cause problems.
-# Default=true for development builds, set by android buildsystem.
-#PRODUCT_PROPERTY_DEFAULTOVERRIDES += \
-#    ro.kernel.android.checkjni=0 \
-#    dalvik.vm.checkjni=false
-
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.debuggable=1 \
     persist.sys.usb.config=mtp \
@@ -284,5 +299,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.dalvik.vm.isa.arm=x86 \
     ro.enable.native.bridge.exec=1
 
-# setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+# call dalvik heap config
+$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# call hwui memory config
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
