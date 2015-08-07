@@ -18,7 +18,7 @@ TARGET_CPU_SMP := true
 #SIM_COUNT := 2
 #ANDROID_MULTI_SIM := true
 #TARGET_RIL_DISABLE_STATUS_POLLING := true
-TARGET_RELEASETOOLS_EXTENSIONS := device/asus/a500cg/releasetools
+
 TARGET_BOARD_KERNEL_HEADERS := device/asus/a500cg/kernel-headers 
 
 # Bootloader
