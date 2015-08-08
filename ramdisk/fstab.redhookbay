@@ -6,8 +6,8 @@
 
 /dev/block/zram0		none		swap	defaults								zramsize=67108864
 
-/dev/block/by-name/boot 	/boot       emmc    defaults       defaults
-/dev/block/by-name/recovery       /recovery        emmc    defaults             defaults
+/dev/block/by-name/boot 	/boot       mtd    defaults       defaults
+/dev/block/by-name/recovery       /recovery        mtd    defaults             defaults
 */block/mmcblk1*          	auto    	vfat	None	wait,voldmanaged=MicroSD:auto,noemulatedsd                    
 */block/sda*              	auto    	vfat	None	wait,voldmanaged=USBdisk1:auto                                
 */block/sdb*              	auto    	vfat	None	wait,voldmanaged=USBdisk2:auto                                
