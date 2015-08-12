@@ -91,7 +91,7 @@ system/lib/libI420colorconvert.so
 system/lib/libdumpsys_logtool.so
 
 # platform/external/tinyalsa
-system/lib/libtinyalsa.so
+#system/lib/libtinyalsa.so
 
 # ??
 system/lib/libCameraFaceDetection.so

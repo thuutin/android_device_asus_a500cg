@@ -17,7 +17,7 @@ TARGET_CPU_ABI_LIST_32_BIT := x86,armeabi-v7a,armeabi
 TARGET_CPU_SMP := true
 #SIM_COUNT := 2
 #ANDROID_MULTI_SIM := true
-#TARGET_RIL_DISABLE_STATUS_POLLING := true
+TARGET_RIL_DISABLE_STATUS_POLLING := true
 
 TARGET_BOARD_KERNEL_HEADERS := device/asus/a500cg/kernel-headers 
 
@@ -60,29 +60,30 @@ BOARD_MALLOC_ALIGNMENT := 16
 PRODUCT_LIBRARY_PATH := $(PRODUCT_LIBRARY_PATH):/system/lib/arm
 
 # Kernel Build from source inline
-#TARGET_PROVIDES_INIT_RC := true
+TARGET_PROVIDES_INIT_RC := true
 #MINIGZIP := out/host/darwin-x86/bin/minigzip
 #openssl: out/host/darwin-x86/bin/openssl
 #KERNEL_DIFFCONFIG := $(LOCAL_PATH)/a500cg_defconfig
 
 #$(info KERNEL_DIFFCONFIG ${KERNEL_DIFFCONFIG} )
+TARGET_KERNEL_BUILT_FROM_SOURCE := true
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := x86_64-linux-android-
+TARGET_KERNEL_CONFIG := a500cg_defconfig
 
-#TARGET_KERNEL_CROSS_COMPILE_PREFIX := x86_64-linux-android-
-#TARGET_KERNEL_CONFIG := a500cg_defconfig
-#TARGET_KERNEL_SOURCE := linux/kernel
-#KERNEL_SRC_DIR ?= linux/kernel
+#TARGET_KERNEL_CONFIG := T00F_defconfig
+TARGET_KERNEL_SOURCE := kernel/asus/a500cg/
+KERNEL_SRC_DIR := kernel/asus/a500cg
+TARGET_KERNEL_ARCH := x86
 # BOARD_CUSTOM_BOOTIMG_MK := device/asus/a500cg/intel-boot-tools/boot.mk
 # DEVICE_BASE_BOOT_IMAGE := device/asus/a500cg/blobs/boot.img
-#BOARD_KERNEL_IMAGE_NAME := bzImage
-# TARGET_PREBUILT_KERNEL := out/target/product/a500cg/obj/KERNEL_OBJ/arch/x86/boot/bzImage
+BOARD_KERNEL_IMAGE_NAME := bzImage
 # DEVICE_BASE_RECOVERY_IMAGE := device/asus/a500cg/blobs/recovery-WW-3.23.40.52.img
 
 # prebuild source kernel
 BOARD_CUSTOM_BOOTIMG_MK := device/asus/a500cg/intel-boot-tools/boot.mk
-TARGET_PREBUILT_KERNEL := device/asus/a500cg/blobs/bzImage
 DEVICE_BASE_BOOT_IMAGE := device/asus/a500cg/blobs/boot.img
 DEVICE_BASE_RECOVERY_IMAGE := device/asus/a500cg/blobs/recovery-WW-3.23.40.52.img
-TARGET_PREBUILT_RECOVERY_KERNEL := device/asus/a500cg/blobs/bzImage 
+TARGET_PREBUILT_KERNEL := device/asus/a500cg/blobs/bzImage 
 
 # Kernel config (reference only)
 BOARD_KERNEL_BASE := 0x10000000
@@ -96,7 +97,7 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
-#WITH_DEXPREOPT := true
+WITH_DEXPREOPT := true
 # Enable dex-preoptimization to speed up first boot sequence
 #ifeq ($(TARGET_BUILD_VARIANT),user)
 #    ifeq ($(WITH_DEXPREOPT),)
@@ -213,45 +214,45 @@ TWRP_EVENT_LOGGING := false
 
 
 # SELinux
-HAVE_SELINUX := true
-BOARD_SEPOLICY_DIRS += device/asus/a500cg/sepolicy
+#HAVE_SELINUX := true
+#BOARD_SEPOLICY_DIRS += device/asus/a500cg/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    seapp_contexts \
-    property_contexts \
-    service_contexts \
-    file.te \
-    device.te \
-    ecryptfs.te \
-    genfs_contexts \
-    vold.te \
-    surfaceflinger.te \
-    zygote.te \
-    pvrsrvctl.te \
-    bluetooth.te \
-    surfaceflinger.te \
-    system_app.te \
-    file.te \
-    shell.te \
-    mediaserver.te \
-    nvm_server.te \
-    su.te   \
-    system_server.te \
-    service.te \
-    mmgr.te \
-    init.te \
-   kernel.te \
-    sysfs_uart_power_ctrl.te \
-    ueventd.te \
-    logcat.te \
-    netd.te \
-    wpa.te \
-    rild.te \
-    akmd.te \
-    gauge.te \
-    customize.te \
-    untrusted_app.te
+#BOARD_SEPOLICY_UNION += \
+#    file_contexts \
+#    seapp_contexts \
+#    property_contexts \
+#    service_contexts \
+#    file.te \
+#    device.te \
+#    ecryptfs.te \
+#    genfs_contexts \
+#    vold.te \
+#    surfaceflinger.te \
+#    zygote.te \
+#    pvrsrvctl.te \
+#    bluetooth.te \
+#    surfaceflinger.te \
+#    system_app.te \
+#    file.te \
+#    shell.te \
+#    mediaserver.te \
+#    nvm_server.te \
+#    su.te   \
+#    system_server.te \
+#    service.te \
+#    mmgr.te \
+#    init.te \
+#   kernel.te \
+#    sysfs_uart_power_ctrl.te \
+#    ueventd.te \
+#   logcat.te \
+#    netd.te \
+#    wpa.te \
+#    rild.te \
+#    akmd.te \
+#    gauge.te \
+#    customize.te \
+#    untrusted_app.te
 
 # Build From source
 USE_INTEL_MDP := true

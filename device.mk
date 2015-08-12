@@ -20,11 +20,11 @@ $(call inherit-product, device/asus/a500cg/intel-boot-tools/Android.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/blobs/bzImage
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+#ifeq ($(TARGET_PREBUILT_KERNEL),)
+#	LOCAL_KERNEL := $(LOCAL_PATH)/blobs/bzImage
+#else
+#	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+#endif
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -46,8 +46,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_KERNEL):kernel
 
 # Modules (currently from ASUS)
 PRODUCT_COPY_FILES += \
@@ -148,7 +148,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.zram.rc:root/init.zram.rc \
     $(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.redhookbay.rc:root/ueventd.redhookbay.rc \
-    $(LOCAL_PATH)/ramdisk/init.aosp.rc:root/init.aosp.rc
+    $(LOCAL_PATH)/ramdisk/init.aosp.rc:root/init.aosp.rc \
+    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -187,13 +188,13 @@ PRODUCT_PACKAGES += \
     libOMXVideoEncoderH263 \
     libOMXVideoEncoderMPEG4 \
     libOMXVideoDecoderAVCSecure
-    
+
 # libwsbm
 PRODUCT_PACKAGES += \
     libwsbm
 
 # libmix
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     libmixvbp \
     libmixvbp_h264 \
     libmixvbp_h264secure \

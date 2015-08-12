@@ -9,4 +9,4 @@ include $(CLEAR_VARS)
 
 # include the non-open-source counterpart to this file
 -include vendor/asus/a500cg/AndroidBoardVendor.mk
-#include $(LOCAL_PATH)/AndroidKernel.mk
+#include kernel/asus/a500cg/AndroidKernel.mk
