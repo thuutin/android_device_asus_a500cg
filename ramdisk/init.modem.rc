@@ -78,7 +78,7 @@ service ril-daemon2 /system/bin/rild -l /system/lib/librapid-ril-core.so -c 2
     class main
     user root
     group radio cache inet misc audio
-    disabled
+    
 
 #service ril-daemon /system/bin/rild \
 #    -l /system/lib/libxgold-ril.so -- -d /dev/ttyGSM1
