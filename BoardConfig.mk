@@ -6,7 +6,7 @@ BOARD_CREATE_MODPROBE_SYMLINK := true
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-#TARGET_NO_RECOVERY := true
+TARGET_NO_RECOVERY := false
 TARGET_ARCH := x86
 TARGET_ARCH_VARIANT := x86-atom
 TARGET_CPU_ABI := x86
@@ -66,18 +66,17 @@ TARGET_PROVIDES_INIT_RC := true
 #KERNEL_DIFFCONFIG := $(LOCAL_PATH)/a500cg_defconfig
 
 #$(info KERNEL_DIFFCONFIG ${KERNEL_DIFFCONFIG} )
-TARGET_KERNEL_BUILT_FROM_SOURCE := true
+#KERNEL_MODULES_INSTALL := root
+#TARGET_KERNEL_BUILT_FROM_SOURCE := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := x86_64-linux-android-
-TARGET_KERNEL_CONFIG := a500cg_defconfig
-
-#TARGET_KERNEL_CONFIG := T00F_defconfig
-TARGET_KERNEL_SOURCE := kernel/asus/a500cg/
-KERNEL_SRC_DIR := kernel/asus/a500cg
+#TARGET_KERNEL_CONFIG := a500cg_defconfig
+#TARGET_KERNEL_VARIANT_CONFIG := asusctp_hd_diffconfig
+TARGET_KERNEL_SOURCE := kernel/asus/a500cg
 TARGET_KERNEL_ARCH := x86
+
 # BOARD_CUSTOM_BOOTIMG_MK := device/asus/a500cg/intel-boot-tools/boot.mk
 # DEVICE_BASE_BOOT_IMAGE := device/asus/a500cg/blobs/boot.img
 BOARD_KERNEL_IMAGE_NAME := bzImage
-# DEVICE_BASE_RECOVERY_IMAGE := device/asus/a500cg/blobs/recovery-WW-3.23.40.52.img
 
 # prebuild source kernel
 BOARD_CUSTOM_BOOTIMG_MK := device/asus/a500cg/intel-boot-tools/boot.mk
@@ -97,25 +96,23 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
-WITH_DEXPREOPT := true
 # Enable dex-preoptimization to speed up first boot sequence
-#ifeq ($(TARGET_BUILD_VARIANT),user)
-#    ifeq ($(WITH_DEXPREOPT),)
-#      WITH_DEXPREOPT := true
-#    endif
-#endif
+ifeq ($(WITH_DEXPREOPT),)
+  WITH_DEXPREOPT := true
+endif
 
 # Wifi
-BOARD_WLAN_DEVICE := bcmdhd
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_HOSTAPD_DRIVER := NL80211
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcm43362/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_AP    := "/system/etc/firmware/fw_bcmdhd_43362_apsta.bin"
-WIFI_DRIVER_FW_PATH_STA   := "/system/etc/firmware/fw_bcmdhd_43362.bin"
-WIFI_DRIVER_MODULE_ARG := "iface_name=wlan0 firmware_path=/system/etc/firmware/fw_bcmdhd_43362.bin"
+BOARD_WLAN_DEVICE 			:= bcmdhd
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB 	:= lib_driver_cmd_bcmdhd
+BOARD_HOSTAPD_PRIVATE_LIB        	:= lib_driver_cmd_bcmdhd
+WPA_SUPPLICANT_VERSION 			:= VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER 		:= NL80211
+BOARD_HOSTAPD_DRIVER 			:= NL80211
+#WIFI_DRIVER_MODULE_PATH         	:= "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_PARAM 		:= "/sys/module/bcm43362/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_AP    		:= "/system/etc/firmware/fw_bcmdhd_43362_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA   		:= "/system/etc/firmware/fw_bcmdhd_43362.bin"
+WIFI_DRIVER_MODULE_ARG 			:= "iface_name=wlan0 firmware_path=/system/etc/firmware/fw_bcmdhd_43362.bin"
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -194,7 +191,6 @@ TW_BRIGHTNESS_PATH := /sys/class/backlight/psb-bl/brightness
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 TW_INCLUDE_CRYPTO := true
-RECOVERY_SDCARD_ON_DATA := true
 TW_INTERNAL_STORAGE_PATH := "/media/data/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "/data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
@@ -270,3 +266,13 @@ USE_MDS_LEGACY := true
 TARGET_HAS_MULTIPLE_DISPLAY := true
 #TARGET_HAS_ISV := true
 #USE_HW_VP8 := true
+
+# Rild
+# Radio
+BOARD_RIL_SUPPORTS_MULTIPLE_CLIENTS := true
+#BOARD_RIL_CLASS := ../../../device/asus/a500cg/ril
+
+#BOARD_FUNCTIONFS_HAS_SS_COUNT := true
+
+# Init
+TARGET_IGNORE_RO_BOOT_SERIALNO := true

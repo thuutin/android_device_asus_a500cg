@@ -24,12 +24,11 @@ system/lib/libdm_dpst.so
 # system/bin/rdnssd
 # ASUS blobmed
 system/bin/mkexfat
-system/bin/mkntfs
+#system/bin/mkntfs
 system/bin/ntfsck
 
 system/lib/DataSet/ditSCidGen/msgchk.db
 system/lib/DataSet/ISP/libxditk_isp.bin
-
 system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so
 system/lib/ditlib_a500cg/libxditk_DIT_Manager.so
 
@@ -91,7 +90,7 @@ system/lib/libI420colorconvert.so
 system/lib/libdumpsys_logtool.so
 
 # platform/external/tinyalsa
-#system/lib/libtinyalsa.so
+system/lib/libtinyalsa.so
 
 # ??
 system/lib/libCameraFaceDetection.so
@@ -290,9 +289,9 @@ system/usr/share/alsa/alsa.conf
 
 # Intel blobs
 
-system/lib/libclcore.bc    
-system/lib/libclcore_debug.bc
-system/lib/libclcore_x86.bc
+#system/lib/libclcore.bc    
+#system/lib/libclcore_debug.bc
+#system/lib/libclcore_x86.bc
 
 # vendor/intel/external/glib
 
@@ -348,7 +347,7 @@ system/etc/firmware/BCM2076B1_002.002.004.0138.0139.hcd
 system/etc/permissions/com.broadcom.bt.xml
 system/framework/com.broadcom.bt.jar
 system/etc/bluetooth/bt_vendor.conf
-system/vendor/lib/libbt-vendor.so
+#system/vendor/lib/libbt-vendor.so
 
 # Camera
 system/etc/permissions/com.intel.camera.extensions.xml
@@ -364,7 +363,7 @@ system/lib/libArcsoftNightHawk.so
 system/lib/libArcsoftStabilizer.so
 system/lib/libarcsoftHDR_3DNR.so
 system/lib/libArcsoft3DNR.so
-system/lib/libintelmetadatabuffer.so
+#system/lib/libintelmetadatabuffer.so
 system/lib/libxditk_AT.so
 
 #system/lib/libxditk_isp.bin
@@ -424,9 +423,9 @@ system/lib/libia_nvm.so
 
 # ASUS Camera
 system/lib/libcameraap.so
-system/lib/libcamera_client.so
+#system/lib/libcamera_client.so
 system/lib/libcamera_defocus.so
-system/lib/libcamera_metadata.so
+#system/lib/libcamera_metadata.so
 system/lib/libcamera_pano.so
 
 system/etc/icesoundpresets_a500cg.def
@@ -486,7 +485,7 @@ system/etc/wifi/bcmdhd_a500cg.cal
 system/etc/wifi/hostapd.conf
 system/etc/wifi/p2p_supplicant.conf
 system/etc/wifi/TQS.ini
-system/etc/wifi/wpa_supplicant.conf
+#system/etc/wifi/wpa_supplicant.conf
 system/etc/wifi/wpa_supplicant_overlay.conf
 #system/bin/wpa_supplicant
 
@@ -704,7 +703,7 @@ system/lib/libxditk_DIT_CloverTrailPlus.so
 
 
 # add extra hardware module we see that this is triger to start
-system/lib/hw/audio.codec_offload.redhookbay.so
+#system/lib/hw/audio.codec_offload.redhookbay.so
 system/lib/hw/audio.hdmi.redhookbay.so
 system/lib/hw/audio.hs_usb.redhookbay.so
 system/lib/hw/audio.primary.redhookbay.so
@@ -732,7 +731,7 @@ system/vendor/firmware/telephony/XMM_6360_A500CG_REV20_1515.00_LPDDR1_MIPI_FLASH
 system/vendor/firmware/telephony/XMM_6360_A600CG_REV20_1515.00_LPDDR1_MIPI_FLASHLESS.fls
 
 system/vendor/lib/drm/libdrmwvmplugin.so
-system/vendor/lib/mediadrm/libdrmclearkeyplugin.so
+#system/vendor/lib/mediadrm/libdrmclearkeyplugin.so
 system/vendor/lib/mediadrm/libwvdrmengine.so
 
 # this is the libdrmdecrypt.so uncomment this if you hate this
@@ -754,3 +753,39 @@ system/etc/icesoundpresets.def
 system/etc/icesoundpresets_a500cg.def
 
 system/etc/route_criteria.conf
+
+#### GApps ####
+#system/app/GoogleCalendarSyncAdapter/GoogleCalendarSyncAdapter.apk
+#system/app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
+#system/etc/permissions/com.google.android.camera2.xml
+#system/etc/permissions/com.google.android.maps.xml
+#system/etc/permissions/com.google.android.media.effects.xml
+#system/etc/permissions/com.google.widevine.software.drm.xml
+#system/framework/com.google.android.camera2.jar
+#system/framework/com.google.android.maps.jar
+#system/framework/com.google.android.media.effects.jar
+#system/framework/com.google.widevine.software.drm.jar
+#system/priv-app/GoogleBackupTransport/GoogleBackupTransport.apk
+#system/priv-app/GoogleOneTimeInitializer/GoogleOneTimeInitializer.apk
+#system/priv-app/Phonesky/Phonesky.apk
+#system/priv-app/GoogleFeedback/GoogleFeedback.apk
+#system/priv-app/GooglePartnerSetup/GooglePartnerSetup.apk
+#system/priv-app/SetupWizard/SetupWizard.apk
+#system/priv-app/GoogleLoginService/GoogleLoginService.apk
+#system/priv-app/GoogleServicesFramework/GoogleServicesFramework.apk
+#system/priv-app/Velvet/lib/x86/libgoogle_hotword_jni.so
+#system/priv-app/Velvet/lib/x86/libgoogle_recognizer_jni_l.so
+#system/priv-app/Velvet/lib/x86/libvcdecoder_jni.so
+#system/priv-app/Velvet/Velvet.apk
+#system/priv-app/GmsCore/GmsCore.apk
+#system/priv-app/GmsCore/lib/x86/libAppDataSearch.so
+#system/priv-app/GmsCore/lib/x86/libconscrypt_gmscore_jni.so
+#system/priv-app/GmsCore/lib/x86/libgames_rtmp_jni.so
+#system/priv-app/GmsCore/lib/x86/libgcastv2_base.so
+#system/priv-app/GmsCore/lib/x86/libgcastv2_support.so
+#system/priv-app/GmsCore/lib/x86/libgmscore.so
+#system/priv-app/GmsCore/lib/x86/libgms-ocrclient.so
+#system/priv-app/GmsCore/lib/x86/libjgcastservice.so
+#system/priv-app/GmsCore/lib/x86/libsslwrapper_jni.so
+#system/priv-app/GmsCore/lib/x86/libWhisper.so
+

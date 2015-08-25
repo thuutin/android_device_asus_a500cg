@@ -488,12 +488,12 @@ on post-fs
     chown system system /sys/bus/i2c/devices/5-006a/enable
 
 	# For APD
-    mount ext4 /dev/block/by-name/ADF /ADF rw noatime context=u:object_r:demoapp_file:s0
+#    mount ext4 /dev/block/by-name/ADF /ADF rw noatime context=u:object_r:demoapp_file:s0
 
-    chown system system /ADF
-    chown system system /APD
-    chmod 0775 /ADF
-    chmod 0775 /APD
+#    chown system system /ADF
+#    chown system system /APD
+#    chmod 0775 /ADF
+#    chmod 0775 /APD
 
 # Permissions for LED
     chown system system /sys/class/leds/intel_keypad_led/brightness
@@ -518,8 +518,8 @@ on post-fs
     chown system system /proc/asus_touch_proximity_status
 
 # Permissions for Touch Glove Mode
-    chown system system /sys/devices/pci0000:00/0000:00:00.3/i2c-0/0-0020/input/input1/glove_mode
-    chown system system /sys/android_touch/glove_mode
+#    chown system system /sys/devices/pci0000:00/0000:00:00.3/i2c-0/0-0020/input/input1/glove_mode
+#    chown system system /sys/android_touch/glove_mode
 
     setprop persist.asus.glove 0
 
@@ -527,7 +527,7 @@ on post-fs
     chown system system /sys/devices/pci0000:00/0000:00:00.3/i2c-0/0-0020/input/input1/dclick_mode
     chown system system /sys/android_touch/dclick_mode
 
-    setprop persist.asus.dclick 0
+    setprop persist.asus.dclick 1
 
 on property:persist.asus.glove=0
     write /sys/devices/pci0000:00/0000:00:00.3/i2c-0/0-0020/input/input1/glove_mode 0

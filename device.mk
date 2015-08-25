@@ -20,11 +20,11 @@ $(call inherit-product, device/asus/a500cg/intel-boot-tools/Android.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
-#	LOCAL_KERNEL := $(LOCAL_PATH)/blobs/bzImage
-#else
-#	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+	LOCAL_KERNEL := $(LOCAL_PATH)/blobs/bzImage
+else
+	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -46,8 +46,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
 
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_KERNEL):kernel
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
 
 # Modules (currently from ASUS)
 PRODUCT_COPY_FILES += \
@@ -194,7 +194,7 @@ PRODUCT_PACKAGES += \
     libwsbm
 
 # libmix
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     libmixvbp \
     libmixvbp_h264 \
     libmixvbp_h264secure \
@@ -274,10 +274,11 @@ PRODUCT_PACKAGES += \
     link_modprobe
 
 PRODUCT_PACKAGES += \
+    su \
     com.intel.multidisplay.xml \
     com.intel.multidisplay \
     libmultidisplay \
-    libmultidisplayjni \
+    libmultidisplayjni
 
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
@@ -288,20 +289,20 @@ PRODUCT_PACKAGES += \
         ituxd
 
 # This will build the plugins/libart-extension.so library
-PRODUCT_PACKAGES += libart-extension
+PRODUCT_PACKAGES += libart-extension libartd-extension
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.debuggable=1 \
-    persist.sys.usb.config=mtp \
     ro.secure=0 \
     ro.adb.secure=0 
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=3 \
     ro.dalvik.vm.isa.arm=x86 \
     ro.enable.native.bridge.exec=1
 
 # call dalvik heap config
-$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # call hwui memory config
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+#$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)

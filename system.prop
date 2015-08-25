@@ -10,3 +10,5 @@ ro.blankphone_id=1
 widi.media.extmode.enable=false
 ro.ril.status.polling.enable=0
 rild.libpath=/system/lib/librapid-ril-core.so
+ro.telephony.default_network=0
+

@@ -55,10 +55,9 @@
 
 
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
-    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
+    <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
     
-    <!-- Setting this true forces the headset jack switches to use the/dev/input/event subsystem
-         rather than the uevent framework. -->
+    <!-- Setting this true forces the headset jack switches to use the/dev/input/event subsystem rather than the uevent framework. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
     
     <!-- This string array should be overridden by the device to present a list of network
@@ -173,6 +172,7 @@
     </string-array> -->
 
     <!-- Values for GPS configuration -->
+
     <string-array translatable="false" name="config_gpsParameters">
         <item>SUPL_HOST=supl.google.com</item>
         <item>SUPL_PORT=7275</item>
@@ -329,9 +329,9 @@
          your device's memory use without going to the point of causing applications to turn
          off features. -->
     <bool name="config_avoidGfxAccel">false</bool>
-    <bool name="config_batterySdCardAccessibility">false</bool>
+    <bool name="config_batterySdCardAccessibility">true</bool>
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">false</bool>
+    <bool name="config_intrusiveBatteryLed">true</bool>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -347,17 +347,30 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">0</integer>
     <!-- Whether UI for multi user should be shown -->
-    <bool name="config_enableMultiUserUI">false</bool>
-     <!-- Defines the system property to set for performance profile xe: sys.cpu.modes. Leave it
-         blank if the device do not support performance profiles
-    <string name="config_perf_profile_prop" translatable="false"></string> -->
+    <bool name="config_enableMultiUserUI">true</bool>
+     <!-- Defines the system property to set for performance profile xe: sys.cpu.modes. Leave it blank if the device do not support performance profiles
+-->
+    <string name="config_perf_profile_prop" translatable="false">@string/perf_profile_bal</string> 
      
     <!-- When config_perf_profile_prop is defined, this value MUST be the index of
          one of the listes values in frameworks/base/core/res/res/values/cm_arrays.xml
          for "perf_profile_values" array. Leave it blank if the device do not support
          performance profiles  -->
+    <string name="config_perf_profile_default_entry" translatable="false">1</string>
+
    <!--  Maximum number of supported users -->
-    <integer name="config_multiuserMaximumUsers">1</integer>
+    <integer name="config_multiuserMaximumUsers">2</integer>
         <!-- Is the device LTE capable -->
-    <bool name="config_lte_capable">true</bool>
+    <bool name="config_lte_capable">false</bool>
+
+ <!-- Override the default detection behavior for the framework method
+         android.view.ViewConfiguration#hasPermanentMenuKey().
+         Valid settings are:
+         0 - No change. Use the default autodetection behavior.
+         1 - The device DOES have a permanent menu key; ignore autodetection.
+         2 - The device DOES NOT have a permanent menu key; ignore autodetection. -->
+    <integer name="config_overrideHasPermanentMenuKey">2</integer>
+
+    <!-- set the system language as value of EF LI/EF PL -->
+    <bool name="config_use_sim_language_file">false</bool>
 </resources>
