@@ -96,6 +96,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/lib/prebuild_modules/texfat.ko:root/lib/prebuild_modules/texfat.ko \
     $(LOCAL_PATH)/ramdisk/lib/prebuild_modules/tntfs.ko:root/lib/prebuild_modules/tntfs.ko
 
+#GPS FIX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gpsd:system/bin/gpsd 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/sbin/intel_prop:root/sbin/intel_prop \
